@@ -1,0 +1,16 @@
+id,subject,topic,sub_topic,question,option1,option2,option3,option4,correct_answer,test_number
+1,Physics,Kinematics,Speed and Velocity,What is the formula for speed?,Distance/Time,Time/Distance,Speed = Time x Distance,Distance x Time,Distance/Time,2
+2,Physics,Optics,Lenses,What type of lens is used to correct farsightedness?,Concave lens,Convex lens,Bifocal lens,Plano-convex lens,Convex lens,2
+3,Physics,Electricity,Circuit Theory,What is the unit of electrical resistance?,Ohm,Volt,Ampere,Joule,Ohm,2
+4,Physics,Modern Physics,Quantum Mechanics,What is the principle behind the Heisenberg Uncertainty Principle?,Position and momentum cannot be known precisely at the same time,The speed of light is always constant,Energy can be created or destroyed,Objects with mass can travel at the speed of light,Position and momentum cannot be known precisely at the same time,2
+5,Physics,Thermodynamics,First Law,What does the first law of thermodynamics state?,Energy cannot be created or destroyed,Heat flows from hot to cold,Work is done when energy is transferred,All of the above,Energy cannot be created or destroyed,2
+6,Chemistry,Organic Chemistry,Alcohols,What is the functional group in alcohols?,–OH,–COOH,–NH2,–CH3,–OH,2
+7,Chemistry,Inorganic Chemistry,Acids,What is the pH of hydrochloric acid (HCl) in water?,0,7,14,1,0,2
+8,Chemistry,Physical Chemistry,Solutions,What is the process of dissolving salt in water called?,Dissolution,Precipitation,Evaporation,Condensation,Dissolution,2
+9,Chemistry,Analytical Chemistry,Titration,What is the purpose of a titration?,To determine the concentration of an unknown solution,To separate components of a mixture,To observe chemical reactions,To calculate the volume of a gas,To determine the concentration of an unknown solution,2
+10,Chemistry,Environmental Chemistry,Global Warming,Which gas is a major contributor to global warming?,Carbon dioxide,Nitrogen,Helium,Oxygen,Carbon dioxide,2
+11,Mathematics,Algebra,Quadratic Equations,What is the solution to the equation x² - 4 = 0?,x = 2 or x = -2,x = 4 or x = -4,x = 2,x = -2,x = 2 or x = -2,2
+12,Mathematics,Geometry,Trigonometry,What is the sine of a 90-degree angle?,1,0,0.5,√2/2,1,2
+13,Mathematics,Calculus,Differentiation,What is the derivative of x²?,2x,x,x²,2,x²,2
+14,Mathematics,Statistics,Standard Deviation,What does the standard deviation measure?,The spread of data,The mean value,The median value,The mode value,The spread of data,2
+15,Mathematics,Probability,Random Variables,What is a discrete random variable?,A variable that can take any value,A variable that can only take specific values,A variable with infinite possible values,A variable with only one value,A variable that can only take specific values,2

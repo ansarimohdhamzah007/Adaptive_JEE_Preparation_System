@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Test Result</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      .summary {
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      .question-result {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .correct {
+        background-color: #d4edda;
+      }
+      .incorrect {
+        background-color: #f8d7da;
+      }
+      .skipped {
+        background-color: #fff3cd;
+      }
+      .weak-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 10px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+      
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .modal-content {
+        background-color: #141b29;
+        margin: 10% auto;
+        padding: 50px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+        position: relative;
+      }
+      .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
+      .motivation {
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+   
+      body {
+        background-color: #141b29 !important;
+        color: #eee !important;
+      }
+
+
+      h2 {
+        position: relative;
+      }
+      .weak-btn,
+      #timeGraphBtn {
+        position: absolute;
+        top: 1rem;
+        padding: 6px 12px;
+        background: #2196f3;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .weak-btn {
+        right: 1rem;
+      }
+      #timeGraphBtn {
+        right: 8.5rem;
+      }
+      .weak-btn:hover,
+      #timeGraphBtn:hover {
+        background: #1976d2;
+      }
+
+      /* ── Inject “Estimated time…” line above summary ── */
+      #resultSummary::before {
+        content: "⏱ Estimated time per question: 2 minutes";
+        display: block;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #ccc;
+      }
+
+      /* ── Summary paragraphs as cards, side-by-side, with hover glow ── */
+      .summary p {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.6rem 1rem;
+        margin: 1rem;
+        border-radius: 6px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .summary p:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+      }
+
+      /* ── Question boxes lift-and-shadow on hover ── */
+      .question-result {
+        transition: transform 0.3s, box-shadow 0.3s;
+        color: black;
+      }
+      .question-result:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      /* ── Add vertical gaps between main sections ── */
+      h2,
+      #resultSummary,
+      #questionDetails {
+        margin: 2rem auto;
+        width: 90%;
+        max-width: 800px;
+        color: white;
+      }
+
+      /* ── Modal list items hover highlight ── */
+      .modal-content ul li:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      h3{
+        color: #fff;
+        padding: 8px;
+      }
+    </style>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="arr1">
+      <span id="back1">
+          <a href="mockTests.html">
+              <img src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="arrow_back" />
+          </a>
+      
+      </span>
+  </div>
+    <button id="close-btn" class="close-btn">&times;</button>
+    <h2>
+      📊 Test Result
+      <button id="showWeakBtn" class="weak-btn">Weak Topics</button>
+    </h2>
+
+    <div id="resultSummary" class="summary"></div>
+    <div id="questionDetails"></div>
+
+    <!-- Weak Topics Modal -->
+    <div id="weakModal" class="modal">
+      <div class="modal-content">
+        <button id="closeModal" class="close-btn">&times;</button>
+        <h3>📚 Weak Topics - Highlights to review!</h3>
+        <p class="motivation">
+          Weak spots shine a light on where you’re growing—celebrate your
+          progress!
+        </p>
+        <ul id="weakList"></ul>
+      </div>
+    </div>
+
+    <button
+      id="timeGraphBtn"
+      style="margin: 10px 0; padding: 6px 12px; cursor: pointer"
+    >
+      View Time Analysis
+    </button>
+    <div id="timeModal" class="modal">
+      <div class="modal-content">
+        <button id="closeTimeModal" class="close-btn">&times;</button>
+        <h3>⏱ Time Taken per Question</h3>
+        <canvas id="timeChart"></canvas>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("close-btn").addEventListener("click", () => {
+        window.location.href = "mockTests.html";
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+        const params = new URLSearchParams(window.location.search);
+        const testNumber =
+          params.get("test") || localStorage.getItem("currentTest");
+
+        if (!token || !testNumber) {
+          alert("⚠️ Please log in and select a test first.");
+          return (window.location.href = "login.html");
+        }
+
+        const summaryEl = document.getElementById("resultSummary");
+        const questionsEl = document.getElementById("questionDetails");
+        const weakModal = document.getElementById("weakModal");
+        const showWeakBtn = document.getElementById("showWeakBtn");
+        const closeModal = document.getElementById("closeModal");
+        const weakListEl = document.getElementById("weakList");
+
+        // Modal event handlers
+        showWeakBtn.onclick = () => {
+          weakModal.style.display = "block";
+        };
+        closeModal.onclick = () => {
+          weakModal.style.display = "none";
+        };
+        window.onclick = (e) => {
+          if (e.target === weakModal) weakModal.style.display = "none";
+        };
+
+        fetch(`http://localhost:5000/api/mock/result/${testNumber}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+          .then((res) => {
+            if (!res.ok)
+              throw new Error(`Server responded with status ${res.status}`);
+            return res.json();
+          })
+          .then((data) => {
+            const {
+              totalMarks,
+              correctCount,
+              incorrectCount,
+              skippedCount,
+              responses,
+            } = data;
+            const MAX_MARKS = 60;
+            // after: const { …, responses } = data;
+            responses.sort(
+              (a, b) => Number(a.questionId) - Number(b.questionId)
+            );
+
+            // Render summary
+            summaryEl.innerHTML = `
+          <h3>Test ${testNumber} Summary</h3>
+          <p>✅ Correct: <strong>${correctCount}</strong></p>
+          <p>❌ Incorrect: <strong>${incorrectCount}</strong></p>
+          <p>⏭️ Skipped: <strong>${skippedCount}</strong></p>
+          <p>📈 Marks Obtained: <strong>${totalMarks}</strong> / ${MAX_MARKS}</p>
+        `;
+
+            // Render each response
+            questionsEl.innerHTML = "";
+            responses.forEach((r) => {
+              const qNum = r.questionId;
+              const div = document.createElement("div");
+              div.className = `question-result ${r.status}`;
+              div.innerHTML = `
+            <h4>Q${qNum}: ${r.question}</h4>
+            <p><strong>Your Answer:</strong> ${r.givenAnswer ?? "Skipped"}</p>
+            <p><strong>Correct Answer:</strong> ${r.correctAnswer}</p>
+            <p><em>Subject:</em> ${r.subject} |
+               <em>Topic:</em> ${r.topic} |
+               <em>Sub-topic:</em> ${r.sub_topic}</p>
+          `;
+              questionsEl.appendChild(div);
+            });
+
+            // Prepare weak topics list for modal
+            const weak = responses.filter((r) => r.status !== "correct");
+            if (weak.length) {
+              weakListEl.innerHTML = weak
+                .map(
+                  (t) =>
+                    `<li><strong>${t.subject}</strong> — ${t.topic} (${t.sub_topic})</li>`
+                )
+                .join("");
+            } else {
+              weakListEl.innerHTML = "<li>🎉 No weak topics—well done!</li>";
+            }
+
+            // ─── Time Analysis Logic ───────────────────────────────
+            // ─── Time Analysis Logic ───────────────────────────────
+            const timeModal = document.getElementById("timeModal");
+            const timeBtn = document.getElementById("timeGraphBtn");
+            const closeTimeModal = document.getElementById("closeTimeModal");
+            let chartInitialized = false;
+
+            timeBtn.onclick = () => {
+              timeModal.style.display = "block";
+              if (!chartInitialized) {
+                // Use actual question IDs for labels
+                const timed = responses.filter(
+                  (r) => r.timeTaken != null && r.questionId != null
+                );
+                const labels = timed.map((r) => `Q${r.questionId}`);
+                const dataTimes = timed.map((r) =>
+                  (r.timeTaken / 60).toFixed(2)
+                );
+                const colors = timed.map((r) =>
+                  r.timeTaken <= 120 ? "green" : "red"
+                );
+                const ctx = document
+                  .getElementById("timeChart")
+                  .getContext("2d");
+                new Chart(ctx, {
+                  type: "bar",
+                  data: {
+                    labels,
+                    datasets: [
+                      {
+                        label: "Time (min)",
+                        data: dataTimes,
+                        backgroundColor: colors,
+                      },
+                    ],
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        title: { display: true, text: "Minutes" },
+                      },
+                    },
+                    plugins: { legend: { display: false } },
+                  },
+                });
+                chartInitialized = true;
+              }
+            };
+
+            closeTimeModal.onclick = () => {
+              timeModal.style.display = "none";
+            };
+
+            timeModal.addEventListener("click", (e) => {
+              if (e.target === timeModal) timeModal.style.display = "none";
+            });
+            // ────────────────────────────────────────────────────────
+
+            // ────────────────────────────────────────────────────────
+          })
+          .catch((err) => {
+            console.error("Error loading results:", err);
+            summaryEl.innerHTML = `<p style="color:red;">Failed to load results. Please try again later.</p>`;
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEE Study Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    .maindivpart {
+      display: flex;
+      justify-content: space-equal;
+      flex-direction: row;
+      margin: 100px;
+      border: 2px solid #fff;
+      border-style: double;
+      border-radius: 34px;
+      height: 500px;
+      background-color: #222;
+      color: white;
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+    }
+    .seconddiv {
+      justify-content: space-around;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex-wrap: wrap;
+      width: 700px;
+      height: 200px;
+      margin-top: 130px;
+      margin-left: 80px;
+      margin-right: 24px;
+    }
+    .firstdiv {
+      margin-top: 80px;
+      height: 400px;
+      margin-left: 20px;
+    }
+    .firsthead {
+      margin-top: 40px;
+      margin-left: 50px;
+      font-size: 32px;
+      font-weight: 700;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: whitesmoke;
+      width: 440px;
+    }
+    .firstpara {
+      font-stretch: semi-expanded;
+      font-size: 22px;
+      font-weight: 300;
+      font-family: "Briem Hand", cursive;
+      margin-left: 50px;
+      margin-top: 24px;
+      margin-right: 10px;
+      color: lightgrey;
+    }
+    .firstbutton {
+      margin-top: 25px;
+      margin-left: 50px;
+      width: 180px;
+      height: 50px;
+      color: white;
+      border-radius: 30px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 19px;
+      font-weight: 500;
+      cursor: pointer;
+      background-color: #5579c6;
+      border: #5579c6;
+      transition: transform 0.3s ease-in-out;
+    }
+    .firstbutton:hover {
+      transform: translateY(-12px);
+    }
+    .div1 button {
+      margin-top: 25px;
+      margin-left: 50px;
+      width: 250px;
+      height: 50px;
+      color: white;
+      border-radius: 10px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 19px;
+      font-weight: 500;
+      cursor: pointer;
+      background-color: #5579c6;
+      border: #5579c6;
+      padding: 3px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .div1 button:hover {
+      transform: translateX(-12px);
+    }
+    .container1 {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      margin-top: 70px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .header .tabs {
+      display: flex;
+      gap: 10px;
+    }
+    .header .tabs button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .header .tabs button.active {
+      background-color: #5579c6;
+      box-shadow: 0 4px 12px rgba(34, 178, 255, 0.4);
+    }
+    .container1 span {
+      color: #ff4d4d;
+      font-size: 14px;
+      background: #ff4d4d1a;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+    .container1 h2 {
+      color: white;
+    }
+    .view-all {
+      color: #03a9f4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .cards-container {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .cards-container h3 {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .cards {
+      display: none;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .cards.active {
+      display: flex;
+    }
+    .card {
+      background-color: #2a2f42;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      max-width: 160px;
+      text-align: center;
+      position: relative;
+    }
+    .card.card-1 {
+      background-image: url(Images/current\ electricity.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-1:hover {
+      transform: translateY(-10px);
+    }
+
+    .card.card-2 {
+      background-image: url(Images/semiconductor.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-2:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-3 {
+      background-image: url(Images/alternating\ current.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-3:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-4 {
+      background-image: url(Images/rotational\ motion.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-4:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-5 {
+      background-image: url(Images/oscillations.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-5:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-11 {
+      background-image: url(Images/general\ organic\ .png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-11:hover {
+      transform: translateY(-10px);
+    }
+
+    .card.card-21 {
+      background-image: url(Images/chemical\ bonding.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-21:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-31 {
+      background-image: url(Images/amines.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-31:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-41 {
+      background-image: url(Images/hydrocarbons.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-41:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-51 {
+      background-image: url(Images/coordination\ compounds.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-51:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-12 {
+      background-image: url(Images/indefinite\ integration.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-12:hover {
+      transform: translateY(-10px);
+    }
+
+    .card.card-22 {
+      background-image: url(Images/trigo.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-22:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-32 {
+      background-image: url(Images/area\ under\ curves.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-32:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-42 {
+      background-image: url(Images/binomial\ theroem.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-42:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card.card-52 {
+      background-image: url(Images/app\ of\ derivatives.png);
+      background-size: cover;
+      background-position: center;
+      height: 140px;
+      cursor: pointer;
+    }
+
+    .card.card-52:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .impo {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      margin-left: 30px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .news-box {
+      width: 70%;
+      height: 150px;
+      overflow: hidden;
+      margin: auto;
+      border: 1px solid #ccc;
+      position: relative;
+      background-color: #28313a;
+    }
+
+    .news-list {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .news-list li {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .news-list li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .news-list li a:hover {
+      color: red;
+    }
+
+    .content-box {
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 70px;
+      width: 600px;
+      background-color: #222;
+      border-radius: 23px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .content-box:hover {
+      box-shadow: 0 0 20px rgba(255, 255, 255);
+    }
+
+    .content-box h2 {
+      margin-top: 0;
+      color: white;
+    }
+
+    .content-box img {
+      float: right;
+      margin: 10px 20px 10px 0;
+      max-width: 200px;
+      height: auto;
+    }
+
+    .content-box::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .content-box p {
+      color: white;
+      line-height: 1.6;
+    }
+
+    .glowing-box {
+      position: relative;
+      width: 70%;
+      padding: 20px;
+      background: #222;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .glowing-box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle,
+          rgba(255, 255, 255, 0.25),
+          transparent 70%);
+      transform: translateX(-100%);
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+
+    .glowing-box:hover::before {
+      transform: translateX(0) scale(1.5);
+    }
+
+    .glowing-box:hover {
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .content ul li {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .content ul li span {
+      color: #00ff00;
+      margin-left: 10px;
+    }
+    #logoutBtn{
+      height: 40px;
+    }
+  </style>
+  <script src="auth.js" defer></script>
+</head>
+
+<body>
+  <nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+          <i class='bx bx-x' ></i>
+        </div> 
+        <ul class="links">
+          <li><a href="index.html">HOME</a></li>
+          <li>
+            <a href="#">EXPLORE</a>
+            <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+            <ul class="htmlCss-sub-menu sub-menu">
+              <li><a href="mathssyll.html">Maths Syllabus</a></li>
+              <li><a href="physyll.html">Physics Syllabus</a></li>
+              <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+              <li class="more">
+                <span><a href="#">More</a>
+                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+              </span>
+                <ul class="more-sub-menu sub-menu">
+                  <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                  <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#" id="contact-pagen">CONTACT</a></li>
+          <li><a href="formulapg.html">FORMULAS</a></li>
+          <li><a id="authBtn" href="login.html">Login/Register</a></li>
+          <button id="logoutBtn" style="display: none">Logout</button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="maindivpart">
+    <div class="firstdiv">
+      <h1 class="firsthead">Unlock your JEE success with JEE BUDDY</h2>
+        <p class="firstpara">
+          Master JEE Mains with a Personalized Plan.
+        </p>
+        <a href="getstarted.html"><button type="button" class="firstbutton" id="getstarted">Get Started</button></a>
+    </div>
+
+    <div class="seconddiv">
+      <div class="div1">
+        <a id="mockTestBtn" href="mockTests.html">
+          <button type="button">Mock Tests</button>
+        </a>
+      </div>
+      <div class="div1">
+        <a id="chapTestBtn" href="chaptest.html">
+          <button type="button">Chapterwise Tests</button>
+        </a>
+      </div>
+      <div class="div1">
+        <a id="subTestBtn" href="subjecttest.html">
+          <button type="button">Subjectwise Tests</button>
+        </a>
+      </div>
+      <div class="div1">
+        <a id="pyqTestBtn" href="pyq.html">
+          <button type="button">PYQs</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="impo">Important Updates - JEE Mains</h2>
+  <div class="news-box">
+    <ul class="news-list">
+      <li><a href="https://jeemain.nta.ac.in/">JEE Main Website</a></li>
+      <li>
+        <a href="https://jeemainsession2.ntaonline.in/frontend/web/scorecard/index">View JEE Main Scorecard by NTA</a>
+      </li>
+      <li>
+        <a
+          href="https://jeemain.nta.ac.in/images/advisory-and-instructions-for-the-candidates-of-joint-entrance-examination-main-2024-session-2-april-2024.pdf">Advisory-for-JEE
+          Main</a>
+      </li>
+      <li>
+        <a href="https://www.shiksha.com/news/engineering-jee-main-2025-exam-dates-live-updates-blogId-179969">JEE Main
+          Live Updates</a>
+      </li>
+      <li>
+        <a href="https://www.shiksha.com/engineering/jee-main-college-predictor">JEE Main College Predictor</a>
+      </li>
+    </ul>
+        
+  </div>
+
+  <div id="formula-cards" class="container1">
+    <div class="header">
+      <h2>Formula Cards <span>NEW</span></h2>
+      <div class="tabs">
+        <button type="button" class="active" onclick="showCards('physics')">
+          Physics
+        </button>
+        <button type="button" onclick="showCards('chemistry')">
+          Chemistry
+        </button>
+        <button type="button" onclick="showCards('mathematics')">
+          Mathematics
+        </button>
+      </div>
+      <a href="#" id="formula-dashbd" class="view-all">VIEW ALL</a>
+    </div>
+
+    <div class="cards-container">
+      <h3>Recent chapters</h3>
+      <div id="physics" class="cards active">
+        <div class="card card-1"
+          onclick="openPDF('https://drive.google.com/file/d/1_kI2G8Wi7UBx72LAQsJMhgc5i7kgdD7B/view')"></div>
+        <div class="card card-2"
+          onclick="openPDF('https://drive.google.com/file/d/19GrJUtDpWTYRRrC7NM6SrcF0COhZLqou/view')"></div>
+        <div class="card card-3"
+          onclick="openPDF('https://drive.google.com/file/d/1GtCiNxfDEuGxUoNuYgqMgu85BcT0TP2C/view')"></div>
+        <div class="card card-4"
+          onclick="openPDF('https://drive.google.com/file/d/1PHhJhMTIUkstc-EWjAC6qnpD_YWoyRMU/view')"></div>
+        <div class="card card-5"
+          onclick="openPDF('https://drive.google.com/file/d/1SVk5JU6GciaWIn2miQdHbYUkWL3XsfhL/view')"></div>
+      </div>
+
+      <div id="chemistry" class="cards">
+        <div class="card card-11"
+          onclick="openPDF('https://www.pw.live/exams/school/general-organic-chemistry-formula/')"></div>
+        <div class="card card-21" onclick="openPDF('https://www.pw.live/exams/school/chemical-bonding-formula/')"></div>
+        <div class="card card-31"
+          onclick="openPDF('https://drive.google.com/file/d/10ZWE6QQSSt379j3ebtEGuDS7dzmSSQ5i/view')"></div>
+        <div class="card card-41"
+          onclick="openPDF('https://drive.google.com/file/d/1M8fhPh7sLwMPzMj6N3FE1cYL7Bp-H8cC/edit')"></div>
+        <div class="card card-51" onclick="openPDF('https://byjus.com/jee/coordination-compounds/')"></div>
+      </div>
+
+      <div id="mathematics" class="cards">
+        <div class="card card-12"
+          onclick="openPDF('https://www.masterjeeclasses.com/wp-content/uploads/2019/01/8.Indefinite-IntegrationTheory.pdf')">
+        </div>
+        <div class="card card-22"
+          onclick="openPDF('https://www.masterjeeclasses.com/wp-content/uploads/2019/01/7.-TRIGONOMETRIC-RATIOS-IDENTITIES-AND-EQUATIONS-THEORY.pdf')">
+        </div>
+        <div class="card card-32"
+          onclick="openPDF('https://www.masterjeeclasses.com/wp-content/uploads/2019/01/11.Area-Under-the-Curve-and-Linear-ProgrammingTheory.pdf')">
+        </div>
+        <div class="card card-42"
+          onclick="openPDF('https://drive.google.com/file/d/182rhaSOKI0GZfl2sa2b-nhg_dmFBT6i9/view')"></div>
+        <div class="card card-52"
+          onclick="openPDF('https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/mathematics/leep206.pdf')">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-box">
+    <h2>Why Choose JEE BUDDY?</h2>
+    <img src="bar-chart.png" alt="Image" />
+    <p>
+      The JEE BUDDY is an advanced web platform designed to optimize Joint
+      Entrance Examination (JEE) preparation for students from class 11, class
+      12 and drop year aspirants. Using AI and ML algorithms, the planner
+      generates personalized study plans based on students' strengths,
+      weaknesses, and learning preferences. It offers curated resources
+      aligned with the JEE syllabus, including textbooks, video lectures, and
+      past papers with solutions. Real-time performance analytics track
+      progress and identify areas for improvement. With a modern tech stack
+      and user-centric design, this innovative tool aims to revolutionize JEE
+      exam readiness and maximize student success.
+    </p>
+  </div>
+
+  <div class="glowing-box">
+    <div class="content">
+      <h2>JEE BUDDY Advantages: Your Competitive Edge</h2>
+      <p>
+        Explore the unique benefits that set JEE BUDDY apart, giving you the
+        competitive edge in your exam preparation.
+      </p>
+      <ul>
+        <li>Roadmap <span>&#10003;</span></li>
+        <li>Video Suggestions <span>&#10003;</span></li>
+        <li>Study Materials <span>&#10003;</span></li>
+        <li>Mock Tests <span>&#10003;</span></li>
+        <li>Performance Analysis <span>&#10003;</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2 id="Homepagefooter">JEE BUDDY</h2>
+        <p>Master JEE Mains with a Personalised Plan!</p>
+      </div>
+      <div class="footer-links">
+        <div class="quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="contact-pagef">Contact</a></li>
+            <li><a href="formulapg.html">Formulas</a></li>
+          </ul>
+        </div>
+        <div class="contact-info">
+          <h3>GET IN TOUCH</h3>
+          <p><a href="#">viveksharma08412@gmail.com</a></p>
+          <p><a href="#">rishavgupta172003@gmail.com</a></p>
+          <p><a href="#">iamhamzah28@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

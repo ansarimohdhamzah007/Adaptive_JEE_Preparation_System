@@ -1,0 +1,16 @@
+id,subject,topic,sub_topic,question,option1,option2,option3,option4,correct_answer,test_number
+1,Physics,Mechanics,Newton's Laws,What is the force on a 5 kg object accelerating at 2 m/s²?,10 N,5 N,2 N,1 N,10 N,5
+2,Physics,Optics,Lenses,What is the focal length of a converging lens that produces a real image?,Positive,Negative,Zero,Infinite,Positive,5
+3,Physics,Electricity,Circuit Theory,What is the total resistance in a series circuit with 3 resistors of 2Ω each?,2Ω,3Ω,6Ω,4Ω,6Ω,5
+4,Physics,Modern Physics,Relativity,What is the speed of light in a vacuum?,3 x 10⁸ m/s,3 x 10⁶ m/s,300 m/s,3 x 10⁹ m/s,3 x 10⁸ m/s,5
+5,Physics,Thermodynamics,First Law of Thermodynamics,Which equation represents the first law of thermodynamics?,ΔU = Q - W,ΔU = W - Q,ΔU = Q + W,ΔU = Q / W,ΔU = Q - W,5
+6,Chemistry,Organic Chemistry,Hydrocarbons,What is the functional group in alcohols?,Hydroxyl group,Carbonyl group,Amino group,Carboxyl group,Hydroxyl group,5
+7,Chemistry,Inorganic Chemistry,Periodicity,Which element has the highest electronegativity?,Oxygen,Fluorine,Nitrogen,Chlorine,Fluorine,5
+8,Chemistry,Physical Chemistry,Gases,What is the ideal gas law equation?,PV = nRT,PV = nRT + Q,V = nRT,P = nRT / V,PV = nRT,5
+9,Chemistry,Analytical Chemistry,Spectroscopy,What is the principle behind NMR spectroscopy?,Absorption of UV light,Emission of X-rays,Interaction with nuclear spins,Reflection of IR light,Interaction with nuclear spins,5
+10,Chemistry,Environmental Chemistry,Green Chemistry,Which principle promotes waste prevention?,Reducing chemical hazards,Designing safer chemicals,Utilizing renewable resources,All of the above,All of the above,5
+11,Mathematics,Algebra,Polynomials,What is the factorization of x² - 5x + 6?,(x - 2)(x - 3),(x + 2)(x - 3),(x - 1)(x - 6),(x + 5)(x - 1),(x - 2)(x - 3),5
+12,Mathematics,Geometry,Area,What is the area of a triangle with base 4 cm and height 5 cm?,10 cm²,20 cm²,15 cm²,12 cm²,10 cm²,5
+13,Mathematics,Calculus,Integration,What is the integral of x²?,(x³)/3 + C,(x²)/2 + C,x³ + C,x² + C,(x³)/3 + C,5
+14,Mathematics,Statistics,Probability,What is the probability of drawing a red card from a deck of cards?,1/2,1/4,1/52,1/13,1/2,5
+15,Mathematics,Probability,Combinations,How many ways can you choose 2 objects from a set of 5?,10,20,15,5,10,5

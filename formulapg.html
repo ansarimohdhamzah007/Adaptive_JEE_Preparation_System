@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Page Dashboard</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        .headdiv {
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            margin: 40px;
+            margin-left: 190px;
+        }
+
+        .headdiv span {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .headdiv span:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #1F2227;
+            padding: 12px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .arrow-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .section-title span {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .cards {
+            display: flex;
+            gap: 12px;
+            margin: auto;
+        }
+
+        .card {
+            flex: 1;
+            max-width: 150px;
+            text-align: center;
+            cursor: pointer;
+            height: 160px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            height: 140px;
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .card .details {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .arrow-icon {
+            color: #00ADEF;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .arrow-icon:hover {
+            color: #00BFFF;
+        }
+    </style>
+    <script src="auth.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class="bx bx-menu"></i>
+            <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+                    <i class="bx bx-x"></i>
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>
+                        <a href="#">EXPLORE</a>
+                        <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                            <li><a href="physyll.html">Physics Syllabus</a></li>
+                            <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" id="contact-pagen">CONTACT</a></li>
+                    <li><a href="formulapg.html">FORMULAS</a></li>
+                    <li><a id="authBtn" href="login.html">Login/Register</a></li>
+                    <button id="logoutBtn" style="display: none">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="headdiv">
+        <span id="back"><img src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="arrow_back" />
+        </span>
+        <h1>Formula Cards</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-title">
+                <div>
+                    <strong>Physics</strong>
+                    <span>(Chapterwise Formula Cards)</span>
+                </div>
+                <div id="forwardphy" class="arrow-icon"><img
+                        src="arrow_forward_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="arrow_forward"></div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <a rel="noopener noreferrer"
+                        href="https://drive.google.com/file/d/1_kI2G8Wi7UBx72LAQsJMhgc5i7kgdD7B/view"
+                        target="_blank"><img src="Images/current electricity.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/19GrJUtDpWTYRRrC7NM6SrcF0COhZLqou/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/semiconductor.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1GtCiNxfDEuGxUoNuYgqMgu85BcT0TP2C/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/alternating current.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1PHhJhMTIUkstc-EWjAC6qnpD_YWoyRMU/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/rotational motion.png" alt="image"></a>
+                </div>
+
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1SVk5JU6GciaWIn2miQdHbYUkWL3XsfhL/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/oscillations.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/179kA_C5UwsRz0mCyDlqcCdPW4pWtu5ip/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/thermodynamics phy.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://byjus.com/jee/important-centre-of-mass-formulas-for-jee/" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/center of mass.png" alt="image"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <div>
+                    <strong>Chemistry</strong>
+                    <span>(Chapterwise Formula Cards)</span>
+                </div>
+                <div id="forwardchem" class="arrow-icon"><img
+                        src="arrow_forward_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="arrow_forward"></div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1Kog_VLmNWJ83_BD4ZXdXTXRHRYjsPrbx/edit" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/carboxylic acid.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/10ZWE6QQSSt379j3ebtEGuDS7dzmSSQ5i/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/amines.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://mohammedabbas27.files.wordpress.com/2013/11/alcohols-phenol-and-ethers.pdf"
+                        target="_blank" rel="noopener noreferrer"><img src="Images/alcohol.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1k3T9gM9InmbVBcG2h52B40YTOFL4rR3N/edit" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/biomolecules.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://www.masterjeeclasses.com/wp-content/uploads/2019/02/11.Practical-Organic-ChemistryTheory.pdf"
+                        target="_blank" rel="noopener noreferrer"><img src="Images/pract chem.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/179uwtYGlwyJT1_W_w-z-y4X0Q8IbaJWe/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/chem equilibrium.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1xrDcphZrZzyfEpJFkXR30js6ex3exZ8k/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/ionic equilibrium.png" alt="image"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <div>
+                    <strong>Mathematics</strong>
+                    <span>(Chapterwise Formula Cards)</span>
+                </div>
+                <div id="forwardmath" class="arrow-icon"><img
+                        src="arrow_forward_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="arrow_forward"></div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <a href="https://www.masterjeeclasses.com/wp-content/uploads/2019/01/11.Area-Under-the-Curve-and-Linear-ProgrammingTheory.pdf"
+                        target="_blank" rel="noopener noreferrer"><img src="Images/area under curves.png"
+                            alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1FhnrOlHY30VuxcQK8tdGbZK4zBff_Fwi/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/circle.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://byjus.com/jee/important-integration-formulas-for-jee/" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/definite integration.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://www.masterjeeclasses.com/wp-content/uploads/2019/01/7.-TRIGONOMETRIC-RATIOS-IDENTITIES-AND-EQUATIONS-THEORY.pdf"
+                        target="_blank" rel="noopener noreferrer"><img src="Images/trigo.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1kAwlS6rXwxgfyuw9crkG4j97-0jR0F4_/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/trigoequations.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1O6y5ecUIq_UQSUsERB6lTjLZJYX18kfD/view" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/matrices.png" alt="image"></a>
+                </div>
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/10bj99onbCxP4Hlhs-jYyJS9eQLGV-t8l/edit" target="_blank"
+                        rel="noopener noreferrer"><img src="Images/determinants.png" alt="image"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2 id="Homepagefooter">JEE BUDDY</h2>
+                <p>Master JEE Mains with a Personalised Plan!</p>
+            </div>
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" id="contact-pagef">Contact</a></li>
+                        <li><a href="formulapg.html">Formulas</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>GET IN TOUCH</h3>
+                    <p><a href="#">viveksharma08412@gmail.com</a></p>
+                    <p><a href="#">rishavgupta172003@gmail.com</a></p>
+                    <p><a href="#">iamhamzah28@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("back").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = 'index.html';
+        });
+        document.getElementById("forwardphy").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = 'formulapgphy.html';
+        });
+        document.getElementById("forwardchem").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = 'formulapgchem.html';
+        });
+        document.getElementById("forwardmath").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = 'formulapgmath.html';
+        });
+    </script>
+</body>
+
+</html>

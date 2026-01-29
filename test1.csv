@@ -1,0 +1,16 @@
+id,subject,topic,sub_topic,question,option1,option2,option3,option4,correct_answer,test_number
+1,Physics,Mechanics,Newton's Laws,What is Newton's Second Law?,F = ma,F = mv,F = m^2a,F = ma^2,F = ma,1
+2,Physics,Optics,Refraction,What happens when light enters a denser medium?,It bends towards the normal,It bends away from the normal,It stops,It passes straight through,It bends towards the normal,1
+3,Physics,Electricity,Ohm's Law,What is the relationship between voltage / current / resistance?,V = IR,V = I^2R,V = I/R,V = R/I,V = IR,1
+4,Physics,Modern Physics,Photoelectric Effect,What is required for the photoelectric effect to occur?,Light of sufficient frequency,Low temperature,High pressure,All of the above,Light of sufficient frequency,1
+5,Physics,Thermodynamics,Heat Transfer,Which of the following is a method of heat transfer?,Conduction,Reflection,Refraction,Transmission,Conduction,1
+6,Chemistry,Organic Chemistry,Hydrocarbons,Which of the following is an example of an alkane?,C2H4,C2H6,C2H2,C3H8,C2H6,1
+7,Chemistry,Inorganic Chemistry,Periodic Table,Which element is in group 1 of the periodic table?,Sodium,Calcium,Iron,Neon,Sodium,1
+8,Chemistry,Physical Chemistry,Acids and Bases,What is the pH of a neutral solution?,7,0,14,1,7,1
+9,Chemistry,Analytical Chemistry,Chromatography,Which technique is used to separate components of a mixture?,Distillation,Chromatography,Filtration,Evaporation,Chromatography,1
+10,Chemistry,Environmental Chemistry,Pollution,What is a major source of air pollution?,Industrial emissions,Forests,Water bodies,Solar radiation,Industrial emissions,1
+11,Mathematics,Algebra,Linear Equations,What is the solution to the equation 2x + 5 = 15?,x = 5,x = 2,x = 10,x = 7,x = 5,1
+12,Mathematics,Geometry,Circles,What is the formula for the area of a circle?,πr^2,2πr,πd,2r,πr^2,1
+13,Mathematics,Calculus,Integration,What is the integral of x dx?,x^2/2,x^2,x/2,x^3/3,x^2/2,1
+14,Mathematics,Statistics,Mean,What is the mean of the set {1 3 5}?,3,2,4,5,3,1
+15,Mathematics,Probability,Events,If a coin is flipped what is the probability of getting heads?,0.5,0.25,0.75,1,0.5,1

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <style>
+      /* add gaps between sections */
+      .section {
+        margin: 2rem 0;
+      }
+
+      /* if you have any standalone blocks not wrapped in .section, e.g. nav or #mockResults */
+      nav,
+      #mockResults,
+      .chart-container,
+      .graph-toggle {
+        margin-bottom: 2rem;
+      }
+
+      body {
+        background-color: #141b29;
+        color: #fff;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Navigation */
+      nav.dashboard-nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+      }
+
+      nav.dashboard-nav a {
+        margin-left: 1rem;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav.dashboard-nav a:hover {
+        color: #ffa726;
+      }
+
+      /* Header */
+      .dashboard-title {
+        text-align: center;
+        margin: 1rem 0;
+      }
+
+      /* Profile Section */
+      .profile-section {
+        display: flex;
+        justify-content: space-around;
+        max-width: 800px;
+        margin: 0 auto 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .profile-item {
+        margin: 0;
+        flex: 1;
+        text-align: center;
+      }
+
+      /* Summary Cards */
+      .summary-cards {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem;
+      }
+
+      .summary-cards .card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem;
+        width: 150px;
+        text-align: center;
+        border-radius: 8px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .summary-cards .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      }
+
+      /* Graph Toggle Buttons */
+      .graph-toggle {
+        text-align: center;
+        margin: 1rem;
+      }
+
+      .graph-toggle button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .graph-toggle button:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Charts */
+      canvas.chart-canvas {
+        display: block;
+        margin: 0 auto 1rem;
+        max-width: 500px;
+        width: 80%;
+        transition: box-shadow 0.3s;
+      }
+
+      canvas.chart-canvas:hover {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+      }
+
+      /* Mock Test Cards */
+      .mock-results {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 1rem;
+      }
+
+      .mock-results li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #1e2638;
+        border: 1px solid #2b3450;
+        padding: 1rem;
+        border-radius: 8px;
+        width: 140px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .mock-results li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+      }
+
+      .mock-results .score {
+        color: #2196f3;
+        font-weight: bold;
+        margin-top: 0.5rem;
+      }
+
+      .mock-results button {
+        margin-top: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        border: none;
+        background: #2196f3;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .mock-results button:hover {
+        background: #1976d2;
+      }
+
+      /* Strength & Weak Boxes */
+      .weak-boxes {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .weak-box h4 {
+        margin: 0 0 0.5rem;
+        text-align: center;
+      }
+      .weak-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem;
+        border-radius: 8px;
+        width: 150px;
+        transition: transform 0.3s;
+        cursor: pointer; /* Make it look clickable */
+      }
+
+      .weak-box:hover {
+        transform: none; /* No grow on hover */
+      }
+
+      /* Hide the list initially */
+      .weak-box ul {
+        display: none;
+        margin-top: 10px;
+      }
+
+      .weak-box li {
+        padding: 0.3rem 0;
+        transition: background 0.3s;
+      }
+
+      .weak-box li:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="dashboard-nav">
+      <a href="index.html">Home</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+
+    <h2 class="dashboard-title">👤 Student Dashboard</h2>
+
+    <div id="userDetails" class="profile-section">
+      <p class="profile-item">
+        <strong>Name:</strong> <span id="userName"></span>
+      </p>
+      <p class="profile-item">
+        <strong>Email:</strong> <span id="userEmail"></span>
+      </p>
+      <p class="profile-item">
+        <strong>Phone:</strong> <span id="userPhone"></span>
+      </p>
+    </div>
+
+    <h3 class="dashboard-title">📊 Performance Overview</h3>
+    <div class="summary-cards">
+      <div class="card">
+        <h4>Your Average</h4>
+        <p><span id="yourAverage">--</span> / 60</p>
+      </div>
+      <div class="card">
+        <h4>Peer Average</h4>
+        <p><span id="peerAverage">--</span> / 60</p>
+      </div>
+      <div class="card">
+        <h4>Best Test</h4>
+        <p><span id="bestTest">--</span> / 60</p>
+      </div>
+    </div>
+
+    <div class="graph-toggle">
+      <button id="predGraphBtn">Predicted Score</button>
+      <button id="wormGraphBtn">Worm Graph</button>
+    </div>
+
+    <div id="predGraphContainer">
+      <canvas id="performanceChart" class="chart-canvas"></canvas>
+    </div>
+    <div id="wormGraphContainer">
+      <canvas id="wormChart" class="chart-canvas"></canvas>
+    </div>
+
+    <h3 class="dashboard-title">📝 Mock Test Results</h3>
+    <ul id="mockResults" class="mock-results"></ul>
+
+    <h3 class="dashboard-title">🔑 Strength Topics by Test</h3>
+    <div class="weak-boxes">
+      <div class="weak-box strength-box">
+        <h4>Test 1</h4>
+        <ul id="strong1">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box strength-box">
+        <h4>Test 2</h4>
+        <ul id="strong2">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box strength-box">
+        <h4>Test 3</h4>
+        <ul id="strong3">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box strength-box">
+        <h4>Test 4</h4>
+        <ul id="strong4">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box strength-box">
+        <h4>Test 5</h4>
+        <ul id="strong5">
+          <li>Loading…</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="dashboard-title">🔖 Weak Areas by Test</h3>
+    <div class="weak-boxes">
+      <div class="weak-box weakness-box">
+        <h4>Test 1</h4>
+        <ul id="weak1">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box weakness-box">
+        <h4>Test 2</h4>
+        <ul id="weak2">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box weakness-box">
+        <h4>Test 3</h4>
+        <ul id="weak3">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box weakness-box">
+        <h4>Test 4</h4>
+        <ul id="weak4">
+          <li>Loading…</li>
+        </ul>
+      </div>
+      <div class="weak-box weakness-box">
+        <h4>Test 5</h4>
+        <ul id="weak5">
+          <li>Loading…</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"
+      defer
+    ></script>
+    <script src="./dashboard.js" defer></script>
+  </body>
+</html>

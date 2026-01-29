@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Main Roadmap</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        .head2 {
+            text-align: center;
+            color: white;
+            margin: 43px;
+        }
+        .head {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #334b7e;
+            margin: auto;
+            margin-top: 50px;
+            max-width: 50%;
+            border-radius: 23px;
+        }
+
+        .head h1 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .head p {
+            color: #E0E0E0;
+            font-size: 18px;
+        }
+
+
+        .timeline-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+            position: relative;
+            color: #fff;
+
+        }
+
+        .timeline {
+            width: 70%;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #5579c6;
+            top: 0;
+            left: 50%;
+            margin-left: -3px;
+            height: 0;
+            transition: height 0.5s ease;
+        }
+
+
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .container {
+            padding: 20px;
+            position: relative;
+            background-color: #1F1F1F;
+            border-radius: 6px;
+            width: 45%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+       .container.left {
+            float: left;
+            clear: both;
+            margin-right: 60px;
+        }
+
+        .container.right {
+            float: right;
+            clear: both;
+            margin-left: 60px;
+        }
+
+
+        .icon-box {
+            position: absolute;
+            left: 90%;
+            top: 38px;
+            right: 20px;
+            transform: translate(-50%, -50%);
+            background-color: #5579c6;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+            z-index: 1;
+        }
+        .container.left::after,
+        .container.right::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 20px;
+        }
+
+        .container.left::after {
+            left: 100%;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #1F1F1F;
+        }
+
+        .container.right::after {
+            right: 100%;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #1F1F1F transparent transparent;
+        }
+        .content{
+            padding: auto;
+            margin-left: 17px;
+        }
+    </style>
+    <script src="auth.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>
+                        <a href="#">EXPLORE</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                            <li><a href="physyll.html">Physics Syllabus</a></li>
+                            <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" id="contact-pagen">CONTACT</a></li>
+                    <li><a href="formulapg.html">FORMULAS</a></li>
+                    <li><a id="authBtn" href="login.html">Login/Register</a></li>
+                    <button id="logoutBtn" style="display: none">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="head">
+        <h1>JEE Main Preparation Roadmap</h1>
+        <p>Your guide to success in the JEE Main exam</p>
+    </header>
+
+    <div class="timeline-wrapper">
+        <div class="timeline">
+            <div class="container left">
+                <div class="icon-box">📘</div>
+                <div class="content">
+                    <h2 class="head2">Phase 1: Syllabus Coverage</h2>
+                    <p><strong>Duration:</strong> Months 1-3</p>
+                    <p>Complete the entire JEE syllabus with conceptual clarity.</p>
+                    <ul>
+                        <li>Focus on: Physics, Chemistry, Mathematics</li>
+                        <li>Follow daily/weekly schedule</li>
+                        <li>Use reference books & video lectures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container right">
+                <div class="icon-box">🧠</div>
+                <div class="content">
+                    <h2 class="head2">Phase 2: Problem Solving & Practice</h2>
+                    <p><strong>Duration:</strong> Months 4-6</p>
+                    <p>Focus on practicing problems and improving speed.</p>
+                    <ul>
+                        <li>Problem-solving time tracker</li>
+                        <li>Take weekly mock tests</li>
+                        <li>Review mistakes and analyze weak areas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container left">
+                <div class="icon-box">🔍</div>
+                <div class="content">
+                    <h2 class="head2">Phase 3: Revision & Mock Tests</h2>
+                    <p><strong>Duration:</strong> Months 7-9</p>
+                    <p>Complete revision and practice full-length tests.</p>
+                    <ul>
+                        <li>Revise difficult topics</li>
+                        <li>Timed mock tests every week</li>
+                        <li>Review mistakes and focus on weak areas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container right">
+                <div class="icon-box">🏁</div>
+                <div class="content">
+                    <h2 class="head2">Phase 4: Countdown Days</h2>
+                    <p><strong>Duration:</strong> Last Month</p>
+                    <p>Fine-tune your exam strategy and take mock tests.</p>
+                    <ul>
+                        <li>Attempt mock tests every 2-3 days</li>
+                        <li>Focus on weak areas</li>
+                        <li>Stay calm, focus, and follow your strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2 id="Homepagefooter">JEE BUDDY</h2>
+                <p>Master JEE Mains with a Personalised Plan!</p>
+            </div>
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" id="contact-pagef">Contact</a></li>
+                        <li><a href="formulapg.html">Formulas</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>GET IN TOUCH</h3>
+                    <p><a href="#">viveksharma08412@gmail.com</a></p>
+                    <p><a href="#">rishavgupta172003@gmail.com</a></p>
+                    <p><a href="#">iamhamzah28@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const handleScroll = () => {
+            const containers = document.querySelectorAll(".container");
+            const triggerHeight = window.innerHeight * 0.85;
+  
+            let timelineHeight = 0;
+  
+            containers.forEach((container, index) => {
+              const boxTop = container.getBoundingClientRect().top;
+  
+              if (boxTop < triggerHeight) {
+                container.classList.add("show");
+                timelineHeight = (index + 1) * 150;
+              } else {
+                container.classList.remove("show");
+              }
+            });
+  
+            document
+              .querySelector(".timeline")
+              .style.setProperty("--timeline-height", `${timelineHeight}px`);
+          };
+  
+          window.addEventListener("scroll", handleScroll);
+        });
+      </script>
+
+</body>
+
+</html>

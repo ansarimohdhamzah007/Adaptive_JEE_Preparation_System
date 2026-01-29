@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 VN</title>
+    <script src="script.js" defer></script>
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding-top: 70px;
+            background-color: #141b29;
+        }
+
+        h2,
+        h3,
+        h4 {
+            color: #2c3e50;
+        }
+
+        
+        #logoutBtn
+        {
+            height: 40px;
+            margin: auto;
+            background-color: #3498db;
+            padding: 7px;
+            padding-bottom: 22px;
+            border-radius: 8px;
+            border-color: #3498db;
+            color: white;
+            cursor: pointer;
+            width: 80px;
+            
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 70px;
+            background-color: #1d2638;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 70px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            height: 100%;
+            width: 22px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: #1d2638;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 10px;
+            text-align: center;
+            margin: 20px 0;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #5579c6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .tab-button:hover {
+            background-color: skyblue;
+            color: black;
+        }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+            color: whitesmoke;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #5579c6;
+            color: whitesmoke;
+        }
+
+        td {
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            max-width: 200px;
+            margin: auto;
+        }
+
+        .arr1 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+
+        .arr1 #back1 {
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+            margin-top: 40px;
+        }
+
+        .headchp {
+            color: #fff;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        footer {
+            margin-top: 100px;
+        }
+
+        footer {
+            background-color: #22252a;
+            color: #ffffff;
+            padding: 40px;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            flex: 1;
+        }
+
+        .footer-logo h2 {
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .footer-logo img {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .footer-links {
+            display: flex;
+            flex: 2;
+            justify-content: space-around;
+        }
+
+        .footer-links h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ffffff;
+        }
+
+        .contact-info a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #ccc;
+            border-top: 1px solid #444;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="auth.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class="bx bx-menu"></i>
+            <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+                    <i class="bx bx-x"></i>
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>
+                        <a href="#">EXPLORE</a>
+                        <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                            <li><a href="physyll.html">Physics Syllabus</a></li>
+                            <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" id="contact-pagen">CONTACT</a></li>
+                    <li><a href="formulapg.html">FORMULAS</a></li>
+                    <li><a id="authBtn" href="login.html">Login/Register</a></li>
+                    <button id="logoutBtn" style="display: none">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="arr1">
+        <span id="back1">
+            <a href="getstarted.html">
+                <img src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="arrow_back" />
+            </a>
+        </span>
+        <h2 class="headchp">Class 12 - JEE Main Video Lectures + Notes</h2>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-button" onclick="toggleTab('Physics')">Physics</button>
+        <button class="tab-button" onclick="toggleTab('Chemistry')">
+            Chemistry
+        </button>
+        <button class="tab-button" onclick="toggleTab('Mathematics')">
+            Mathematics
+        </button>
+    </div>
+
+    <div id="Physics" class="tab-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Topic</th>
+                    <th>Video</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="physics-chapters">
+                <!-- Chapters will be dynamically injected here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Chemistry" class="tab-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Topic</th>
+                    <th>Video</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="chemistry-chapters">
+                <!-- Chapters will be dynamically injected here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Mathematics" class="tab-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Topic</th>
+                    <th>Video</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="mathematics-chapters">
+                <!-- Chapters will be dynamically injected here -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2 id="Homepagefooter">JEE BUDDY</h2>
+                <p>Master JEE Mains with a Personalised Plan!</p>
+            </div>
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" id="contact-pagef">Contact</a></li>
+                        <li><a href="formulapg.html">Formulas</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>GET IN TOUCH</h3>
+                    <p><a href="#">viveksharma08412@gmail.com</a></p>
+                    <p><a href="#">rishavgupta172003@gmail.com</a></p>
+                    <p><a href="#">iamhamzah28@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const Physics = [
+            {
+                serial: 1,
+                topic: "Electrostatics",
+                videoUrl: "https://www.youtube.com/embed/ns34neAt2ug?si=UV9Wapbr984V233b",
+                notesUrl: "https://byjus.com/jee/electrostatics-notes-for-iit-jee/",
+            },
+            {
+                serial: 2,
+                topic: "Current Electricity",
+                videoUrl: "https://www.youtube.com/embed/pWO3HyVG-xg?si=gliABWPfUxqZ9sRn",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/01/5.current-electricitytheory.pdf",
+            },
+            {
+                serial: 3,
+                topic: "Electromagnetic Induction",
+                videoUrl: "https://www.youtube.com/embed/QiKngTecaZI?si=F7x2jjwkiVl7nXK6",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/01/7.Electromagnetic-induction-and-wavestheory.pdf",
+            },
+            {
+                serial: 4,
+                topic: "Alternating Current",
+                videoUrl: "https://www.youtube.com/embed/FF8v8BabVI0?si=RFowxwBA99q19Ugs",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/01/8.Alternating-currenttheory.pdf",
+            },
+            {
+                serial: 5,
+                topic: "Thermodynamics",
+                videoUrl: "https://www.youtube.com/embed/example5",
+                notesUrl: "https://example.com/notes5",
+            },
+            {
+                serial: 6,
+                topic: "Ray Optics",
+                videoUrl: "https://www.youtube.com/embed/example6",
+                notesUrl: "https://example.com/notes6",
+            },
+            {
+                serial: 7,
+                topic: "Wave Optics",
+                videoUrl: "https://www.youtube.com/embed/example7",
+                notesUrl: "https://example.com/notes7",
+            },
+            {
+                serial: 8,
+                topic: "Rotational Motion",
+                videoUrl: "https://www.youtube.com/embed/example8",
+                notesUrl: "https://example.com/notes8",
+            },
+            {
+                serial: 9,
+                topic: "Mechanical Properties of Fluids",
+                videoUrl: "https://www.youtube.com/embed/example9",
+                notesUrl: "https://example.com/notes9",
+            },
+            {
+                serial: 10,
+                topic: "Mechanical Properties of Solids",
+                videoUrl: "https://www.youtube.com/embed/example10",
+                notesUrl: "https://example.com/notes10",
+            },
+            {
+                serial: 11,
+                topic: "Work, Power and Energy",
+                videoUrl: "https://www.youtube.com/embed/example11",
+                notesUrl: "https://example.com/notes11",
+            },
+            {
+                serial: 12,
+                topic: "Laws of Motion",
+                videoUrl: "https://www.youtube.com/embed/example12",
+                notesUrl: "https://example.com/notes12",
+            },
+            {
+                serial: 13,
+                topic: "Gravitation",
+                videoUrl: "https://www.youtube.com/embed/example13",
+                notesUrl: "https://example.com/notes13",
+            },
+            {
+                serial: 14,
+                topic: "Oscillations",
+                videoUrl: "https://www.youtube.com/embed/example14",
+                notesUrl: "https://example.com/notes14",
+            },
+            {
+                serial: 15,
+                topic: "Motion in one dimension",
+                videoUrl: "https://www.youtube.com/embed/example15",
+                notesUrl: "https://example.com/notes15",
+            },
+            {
+                serial: 16,
+                topic: "Motion in two dimensions",
+                videoUrl: "https://www.youtube.com/embed/example16",
+                notesUrl: "https://example.com/notes16",
+            },
+            {
+                serial: 17,
+                topic: "Thermal Properties of Matter",
+                videoUrl: "https://www.youtube.com/embed/example17",
+                notesUrl: "https://example.com/notes17",
+            },
+            {
+                serial: 18,
+                topic: "Kinetic Theory of Gases",
+                videoUrl: "https://www.youtube.com/embed/example18",
+                notesUrl: "https://example.com/notes18",
+            },
+            {
+                serial: 19,
+                topic: "Center of Mass Momentum and Collision",
+                videoUrl: "https://www.youtube.com/embed/example19",
+                notesUrl: "https://example.com/notes19",
+            },
+            {
+                serial: 20,
+                topic: "Waves and Sound",
+                videoUrl: "https://www.youtube.com/embed/example20",
+                notesUrl: "https://example.com/notes20",
+            },
+            {
+                serial: 21,
+                topic: "Electromagnetic Waves",
+                videoUrl: "https://www.youtube.com/embed/example21",
+                notesUrl: "https://example.com/notes21",
+            },
+            {
+                serial: 22,
+                topic: "Semiconductors",
+                videoUrl: "https://www.youtube.com/embed/example22",
+                notesUrl: "https://example.com/notes22",
+            },
+            {
+                serial: 23,
+                topic: "Magnetic Effects of Current",
+                videoUrl: "https://www.youtube.com/embed/example23",
+                notesUrl: "https://example.com/notes23",
+            },
+            {
+                serial: 24,
+                topic: "Magnetic Properties of Matter",
+                videoUrl: "https://www.youtube.com/embed/example24",
+                notesUrl: "https://example.com/notes24",
+            },
+            {
+                serial: 25,
+                topic: "Dual Nature of Matter",
+                videoUrl: "https://www.youtube.com/embed/example25",
+                notesUrl: "https://example.com/notes25",
+            },
+            {
+                serial: 26,
+                topic: "Atomic Physics",
+                videoUrl: "https://www.youtube.com/embed/example26",
+                notesUrl: "https://example.com/notes26",
+            },
+            {
+                serial: 27,
+                topic: "Nuclear Physics",
+                videoUrl: "https://www.youtube.com/embed/example27",
+                notesUrl: "https://example.com/notes27",
+            },
+            {
+                serial: 28,
+                topic: "Experimental Physics",
+                videoUrl: "https://www.youtube.com/embed/example28",
+                notesUrl: "https://example.com/notes28",
+            },
+            {
+                serial: 29,
+                topic: "Capacitance",
+                videoUrl: "https://www.youtube.com/embed/example29",
+                notesUrl: "https://example.com/notes29",
+            },
+            {
+                serial: 30,
+                topic: "Communication System",
+                videoUrl: "https://www.youtube.com/embed/example30",
+                notesUrl: "https://example.com/notes30",
+            },
+        ];
+
+        const Chemistry = [
+            {
+                serial: 1,
+                topic: "Aldehydes and Ketones",
+                videoUrl: "https://www.youtube.com/embed/xQM9Pdrs9Oc?si=FhIOIg8k1fXSiF8u",
+                notesUrl: "https://www.aspirationsinstitute.com/wp-content/uploads/2020/10/CBSE-Class-12-Chem-Notes-Question-Bank-Aldehydes-Ketones-And-Carboxylic-Acids-PDF.pdf",
+            },
+            {
+                serial: 2,
+                topic: "Carboxylic Acid Derivatives",
+                videoUrl: "https://www.youtube.com/embed/ssRlZ21RW8o?si=Z-HMHEWNBnoyM37j",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/02/8.Carboxylic-Acid-and-DerivativesTheory.pdf",
+            },
+            {
+                serial: 3,
+                topic: "Amines",
+                videoUrl: "https://www.youtube.com/embed/czKeoFS4QHg?si=GhipX37w1dlomSeW",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/02/9.Amines-and-Aromatic-Compounds-Containing-NitrogenTheory.pdf",
+            },
+            {
+                serial: 4,
+                topic: "General Organic Chemistry",
+                videoUrl: "https://www.youtube.com/embed/1JrjZT3zGew?si=ndX3b9UJW9MF57Vm",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2018/12/8.BASIC-PRINCIPLES-OF-ORGANIC-CHEMISTRY-THEORY.pdf",
+            },
+            {
+                serial: 5,
+                topic: "Biomolecules",
+                videoUrl: "https://www.youtube.com/embed/chem5",
+                notesUrl: "https://example.com/chem5",
+            },
+            {
+                serial: 6,
+                topic: "Polymers",
+                videoUrl: "https://www.youtube.com/embed/chem6",
+                notesUrl: "https://example.com/chem6",
+            },
+            {
+                serial: 7,
+                topic: "Hydrocarbons",
+                videoUrl: "https://www.youtube.com/embed/chem7",
+                notesUrl: "https://example.com/chem7",
+            },
+            {
+                serial: 8,
+                topic: "Haloalkanes and Haloarenes",
+                videoUrl: "https://www.youtube.com/embed/chem8",
+                notesUrl: "https://example.com/chem8",
+            },
+            {
+                serial: 9,
+                topic: "Alcohols, Phenols and Ethers",
+                videoUrl: "https://www.youtube.com/embed/chem9",
+                notesUrl: "https://example.com/chem9",
+            },
+            {
+                serial: 10,
+                topic: "Classification of Elements and Periodicity in Properties",
+                videoUrl: "https://www.youtube.com/embed/chem10",
+                notesUrl: "https://example.com/chem10",
+            },
+            {
+                serial: 11,
+                topic: "Practical Chemistry",
+                videoUrl: "https://www.youtube.com/embed/chem11",
+                notesUrl: "https://example.com/chem11",
+            },
+            {
+                serial: 12,
+                topic: "Hydrogen",
+                videoUrl: "https://www.youtube.com/embed/chem12",
+                notesUrl: "https://example.com/chem12",
+            },
+            {
+                serial: 13,
+                topic: "Chemical Bonding and Molecular Structure",
+                videoUrl: "https://www.youtube.com/embed/chem13",
+                notesUrl: "https://example.com/chem13",
+            },
+            {
+                serial: 14,
+                topic: "d- and f- block elements",
+                videoUrl: "https://www.youtube.com/embed/chem14",
+                notesUrl: "https://example.com/chem14",
+            },
+            {
+                serial: 15,
+                topic: "Some Basic Concepts of Chemistry",
+                videoUrl: "https://www.youtube.com/embed/chem15",
+                notesUrl: "https://example.com/chem15",
+            },
+            {
+                serial: 16,
+                topic: "Structure of Atom",
+                videoUrl: "https://www.youtube.com/embed/chem16",
+                notesUrl: "https://example.com/chem16",
+            },
+            {
+                serial: 17,
+                topic: "Thermodynamics",
+                videoUrl: "https://www.youtube.com/embed/chem17",
+                notesUrl: "https://example.com/chem17",
+            },
+            {
+                serial: 18,
+                topic: "Chemical Equilibrium",
+                videoUrl: "https://www.youtube.com/embed/chem18",
+                notesUrl: "https://example.com/chem18",
+            },
+            {
+                serial: 19,
+                topic: "Ionic Equilibrium",
+                videoUrl: "https://www.youtube.com/embed/chem19",
+                notesUrl: "https://example.com/chem19",
+            },
+            {
+                serial: 20,
+                topic: "Redox Reactions",
+                videoUrl: "https://www.youtube.com/embed/chem20",
+                notesUrl: "https://example.com/chem20",
+            },
+            {
+                serial: 21,
+                topic: "s- block elements",
+                videoUrl: "https://www.youtube.com/embed/chem21",
+                notesUrl: "https://example.com/chem21",
+            },
+            {
+                serial: 22,
+                topic: "p- block elements(group 13 & 14)",
+                videoUrl: "https://www.youtube.com/embed/chem22",
+                notesUrl: "https://example.com/chem22",
+            },
+            {
+                serial: 23,
+                topic: "p- block elements(group 15,16,17 & 18)",
+                videoUrl: "https://www.youtube.com/embed/chem23",
+                notesUrl: "https://example.com/chem23",
+            },
+            {
+                serial: 24,
+                topic: "Coordination Compounds",
+                videoUrl: "https://www.youtube.com/embed/chem24",
+                notesUrl: "https://example.com/chem24",
+            },
+            {
+                serial: 25,
+                topic: "Solutions",
+                videoUrl: "https://www.youtube.com/embed/chem25",
+                notesUrl: "https://example.com/chem25",
+            },
+            {
+                serial: 26,
+                topic: "Electrochemistry",
+                videoUrl: "https://www.youtube.com/embed/chem26",
+                notesUrl: "https://example.com/chem26",
+            },
+            {
+                serial: 27,
+                topic: "Chemical Kinetics",
+                videoUrl: "https://www.youtube.com/embed/chem27",
+                notesUrl: "https://example.com/chem27",
+            },
+        ];
+
+        const Mathematics = [
+            {
+                serial: 1,
+                topic: "Sets, Relations and Functions",
+                videoUrl: "https://www.youtube.com/embed/wS0Jsgn14N0?si=GpLrWqBenYx-yYMo",
+                notesUrl: "https://nios.ac.in/media/documents/SrSec311NEW/311_Maths_Eng/311_Maths_Eng_Lesson2.pdf",
+            },
+            {
+                serial: 2,
+                topic: "Trigonometric Ratios and Identities",
+                videoUrl: "https://www.youtube.com/embed/7lg3Mehc0gk?si=4j3HJ6h_fDZL7Hwz",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/01/7.-TRIGONOMETRIC-RATIOS-IDENTITIES-AND-EQUATIONS-THEORY.pdf",
+            },
+            {
+                serial: 3,
+                topic: "Trigonometric Equations",
+                videoUrl: "https://www.youtube.com/embed/wHnUniHm3yc?si=1piSazxoYGohLnNB",
+                notesUrl: "https://www.masterjeeclasses.com/wp-content/uploads/2019/01/7.-TRIGONOMETRIC-RATIOS-IDENTITIES-AND-EQUATIONS-THEORY.pdf",
+            },
+            {
+                serial: 4,
+                topic: "Quadratic Equation",
+                videoUrl: "https://www.youtube.com/embed/iOwi85y9oSE?si=H_Nx_3Iyvo8kUuEL",
+                notesUrl: "https://www.allen.ac.in/jee-main/2019/mathematics/eng/Quadratic-Equation.pdf",
+            },
+            {
+                serial: 5,
+                topic: "Sequence and Series",
+                videoUrl: "https://www.youtube.com/embed/maths5",
+                notesUrl: "https://example.com/maths5",
+            },
+            {
+                serial: 6,
+                topic: "Binomial Theorem",
+                videoUrl: "https://www.youtube.com/embed/maths6",
+                notesUrl: "https://example.com/maths6",
+            },
+            {
+                serial: 7,
+                topic: "Permutation and Combination",
+                videoUrl: "https://www.youtube.com/embed/maths7",
+                notesUrl: "https://example.com/maths7",
+            },
+            {
+                serial: 8,
+                topic: "Matrices",
+                videoUrl: "https://www.youtube.com/embed/maths8",
+                notesUrl: "https://example.com/maths8",
+            },
+            {
+                serial: 9,
+                topic: "Determinants",
+                videoUrl: "https://www.youtube.com/embed/maths9",
+                notesUrl: "https://example.com/maths9",
+            },
+            {
+                serial: 10,
+                topic: "Circle",
+                videoUrl: "https://www.youtube.com/embed/maths10",
+                notesUrl: "https://example.com/maths10",
+            },
+            {
+                serial: 11,
+                topic: "Parabola",
+                videoUrl: "https://www.youtube.com/embed/maths11",
+                notesUrl: "https://example.com/maths11",
+            },
+            {
+                serial: 12,
+                topic: "Ellipse",
+                videoUrl: "https://www.youtube.com/embed/maths12",
+                notesUrl: "https://example.com/maths12",
+            },
+            {
+                serial: 13,
+                topic: "Hyperbola",
+                videoUrl: "https://www.youtube.com/embed/maths13",
+                notesUrl: "https://example.com/maths13",
+            },
+            {
+                serial: 14,
+                topic: "Limits",
+                videoUrl: "https://www.youtube.com/embed/maths14",
+                notesUrl: "https://example.com/maths14",
+            },
+            {
+                serial: 15,
+                topic: "Continuity and Differentiability",
+                videoUrl: "https://www.youtube.com/embed/maths15",
+                notesUrl: "https://example.com/maths15",
+            },
+            {
+                serial: 16,
+                topic: "Application of Derivatives",
+                videoUrl: "https://www.youtube.com/embed/maths16",
+                notesUrl: "https://example.com/maths16",
+            },
+            {
+                serial: 17,
+                topic: "Indefinite Integration",
+                videoUrl: "https://www.youtube.com/embed/maths17",
+                notesUrl: "https://example.com/maths17",
+            },
+            {
+                serial: 18,
+                topic: "Definite Integration",
+                videoUrl: "https://www.youtube.com/embed/maths18",
+                notesUrl: "https://example.com/maths18",
+            },
+            {
+                serial: 19,
+                topic: "Area under curves",
+                videoUrl: "https://www.youtube.com/embed/maths19",
+                notesUrl: "https://example.com/maths19",
+            },
+        ];
+
+        // Function to dynamically populate the chapter tables
+        function populateChapters(subject, chapters) {
+            const tbody = document.getElementById(
+                `${subject.toLowerCase()}-chapters`
+            );
+            chapters.forEach((chapter, index) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${chapter.serial}</td>
+          <td>${chapter.topic}</td>
+          <td><button onclick="toggleVideo(${index}, '${subject}')"><img src="facebook.png" alt="Video" height="20" width="20"></button></td>
+          <td><a href="${chapter.notesUrl}" target="_blank"><img src="google-docs.png" alt="Notes" height="30" width="30"></a></td>
+          <td>
+              <iframe id="video-${subject}-${index}" src="${chapter.videoUrl}" frameborder="0" style="display:none;"></iframe>
+          </td>
+      `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Function to toggle between subjects
+        function toggleTab(subject) {
+            const tabs = document.querySelectorAll(".tab-content");
+            tabs.forEach((tab) => {
+                tab.style.display = "none";
+            });
+            document.getElementById(subject).style.display = "block";
+        }
+
+        // Function to toggle the video display for each chapter
+        function toggleVideo(index, subject) {
+            const videoIframe = document.getElementById(
+                `video-${subject}-${index}`
+            );
+
+            // Hide all iframes in the same subject
+            const allVideos = document.querySelectorAll(
+                `#${subject.toLowerCase()}-chapters iframe`
+            );
+            allVideos.forEach((iframe) => {
+                if (iframe !== videoIframe) {
+                    iframe.style.display = "none";
+                }
+            });
+
+            // Toggle the clicked video
+            if (
+                videoIframe.style.display === "none" ||
+                videoIframe.style.display === ""
+            ) {
+                videoIframe.style.display = "block";
+            } else {
+                videoIframe.style.display = "none";
+            }
+        }
+
+        // Initialize all subjects on page load
+        window.onload = function () {
+            populateChapters("Physics", Physics);
+            populateChapters("Chemistry", Chemistry);
+            populateChapters("Mathematics", Mathematics);
+
+            // Set Physics tab as active on load
+            document.getElementById("Physics").style.display = "block";
+        };
+    </script>
+</body>
+
+</html>

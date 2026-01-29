@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock Test Attempt</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+    #navPanel {
+      padding: 22px;
+    }
+
+    /* ── Reset & Base ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      padding-top: 70px;
+      padding-left: 30px;
+      background-color: #141b29;
+      color: #eee;
+    }
+
+    /* ── Question Container ── */
+    .question {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1rem 0;
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      min-height: 180px;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .question:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    .clear-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8em;
+      color: #fff;
+      transition: background .3s;
+    }
+
+    .clear-btn:hover {
+      background: burlywood;
+      color: #141b29;
+    }
+
+    /* ── Timer ── */
+    .timer {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .timer::before {
+      content: "Time Remaining: ";
+      font-weight: normal;
+      margin-right: 0.5rem;
+    }
+
+    /* ── Submit Button Disabled ── */
+    #submitBtn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ── Two‐Column Layout & Separator ── */
+    .test-layout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      width: 90%;
+      max-width: 1000px;
+      margin: 2rem auto;
+    }
+
+    .test-layout>#questionArea {
+      flex: 2;
+      margin: 1rem;
+    }
+
+    .test-layout>#navPanel {
+      flex: 1;
+      margin: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+      gap: 0.5rem;
+      border-left: 2px dotted #fff;
+      padding-left: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+    }
+
+    /* ── Navigation Buttons ── */
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 6px;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s, background .3s;
+      cursor: pointer;
+    }
+
+    .nav-btn.current {
+      outline: 2px solid #2196f3;
+    }
+
+    .nav-btn.saved {
+      background: #28a745;
+    }
+
+    .nav-btn.skipped {
+      background: #6c757d;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+    }
+
+    /* ── Controls & Submit ── */
+    #controls,
+    #submitBtn {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 1.5rem auto;
+    }
+
+    #controls button,
+    #submitBtn {
+      background: #2196f3;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      transition: transform .3s, background .3s;
+      cursor: pointer;
+    }
+
+    #controls button:hover,
+    #submitBtn:hover {
+      background: #1976d2;
+      transform: translateY(-2px);
+    }
+
+    /* ── Student Info Card ── */
+    h3+p {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      margin: 1rem 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    h3+p:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    /* ── Section Spacing ── */
+    h2,
+    h3,
+    .timer,
+    .test-layout,
+    #controls,
+    #submitBtn {
+      margin-bottom: 2rem;
+    }
+
+    /* Force the heading to span the full width of the grid */
+    #navPanel .nav-heading {
+      grid-column: 1 / -1;
+      /* span from first to last column */
+      justify-self: center;
+      /* center the text */
+      margin-bottom: 0.5rem;
+      /* space before the buttons */
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <h2>🧪 Mock Test</h2>
+  <h3>Attempting Test <span id="currentTestNumber"></span></h3>
+  <p>Student: <strong id="studentName">Loading…</strong> (ID: <span id="studentId">Loading…</span>)</p>
+
+  <div class="timer-container">
+    <span class="timer" id="timer">30:00</span>
+  </div>
+
+
+  <div class="test-layout">
+    <!-- Left: Questions & Controls -->
+    <div id="questionArea">
+      <div id="testForm"></div>
+      <div id="controls">
+        <button type="button" id="prevBtn">Previous</button>
+        <button type="button" id="saveBtn">Save</button>
+        <button type="button" id="skipBtn">Skip</button>
+        <button type="button" id="nextBtn">Next</button>
+      </div>
+      <button id="submitBtn" disabled>Submit Test</button>
+    </div>
+    <div id="navPanel">
+      <h4 class="nav-heading">Navigate Questions</h4>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const token = localStorage.getItem("token");
+      const testNumber = localStorage.getItem("currentTest");
+      if (!token || !testNumber) {
+        alert("⚠️ Please log in & select a test first.");
+        return window.location.href = "login.html";
+      }
+      document.getElementById("currentTestNumber").textContent = testNumber;
+
+      // 1) Load profile
+      try {
+        const resp = await fetch("http://localhost:5000/api/auth/dashboard", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (!resp.ok) throw new Error("Not authorized");
+        const user = await resp.json();
+        document.getElementById("studentName").textContent = user.name;
+        document.getElementById("studentId").textContent = user.id;
+      } catch (err) {
+        console.error("Profile load failed:", err);
+        alert("Session expired. Please log in again.");
+        return window.location.href = "login.html";
+      }
+
+      const form = document.getElementById("testForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const timerDiv = document.getElementById("timer");
+      const navPanel = document.getElementById("navPanel");
+      const prevBtn = document.getElementById("prevBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const skipBtn = document.getElementById("skipBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // 2) Fetch & render questions + nav buttons
+      let questionsData = [];
+      try {
+        const qres = await fetch(
+          `http://localhost:5000/api/mock/questions/${testNumber}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        if (!qres.ok) throw new Error(`HTTP ${qres.status}`);
+        const { questions } = await qres.json();
+        questionsData = questions || [];
+
+        // initialize tracking arrays
+        const status = Array(questionsData.length).fill(null);
+        const timeTakenArr = Array(questionsData.length).fill(null);
+        let questionStartTime = null;
+
+        // helper to mark nav btn
+        function markNav(i, cls) {
+          const btn = navPanel.querySelector(`.nav-btn[data-index="${i}"]`);
+          btn.classList.remove('saved', 'skipped');
+          btn.classList.add(cls);
+        }
+
+        // render questions & nav
+        questionsData.forEach((q, idx) => {
+          // question card
+          const div = document.createElement("div");
+          div.className = "question";
+          div.innerHTML = `
+          <h3>Q${idx + 1}: ${q.question}</h3>
+          <label><input type="radio" name="q${q.id}" value="1"> ${q.option1}</label><br>
+          <label><input type="radio" name="q${q.id}" value="2"> ${q.option2}</label><br>
+          <label><input type="radio" name="q${q.id}" value="3"> ${q.option3}</label><br>
+          <label><input type="radio" name="q${q.id}" value="4"> ${q.option4}</label>
+        `;
+          form.appendChild(div);
+
+          // Clear response button
+          const clear = document.createElement("button");
+          clear.type = "button";
+          clear.className = "clear-btn";
+          clear.textContent = "Clear";
+          clear.onclick = () => {
+            form.querySelectorAll(`input[name="q${q.id}"]`)
+              .forEach(i => i.checked = false);
+          };
+          div.appendChild(clear);
+
+          // nav btn
+          const navBtn = document.createElement("button");
+          navBtn.type = "button";
+          navBtn.className = "nav-btn";
+          navBtn.dataset.index = idx;
+          navBtn.textContent = idx + 1;
+          navBtn.addEventListener("click", () => showQuestion(idx));
+          navPanel.appendChild(navBtn);
+        });
+        submitBtn.disabled = false;
+
+        // 3) Slide logic + timing
+        let currentIndex = 0;
+        function showQuestion(i) {
+          currentIndex = i;
+          // show/hide
+          document.querySelectorAll('.question').forEach((div, idx) => {
+            div.style.display = idx === i ? 'block' : 'none';
+          });
+          // highlight nav
+          navPanel.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('current'));
+          navPanel.querySelector(`.nav-btn[data-index="${i}"]`).classList.add('current');
+          // start timer
+          questionStartTime = Date.now();
+        }
+        showQuestion(0);
+
+        // 4) Controls (with Save/Skip/Next rules + timing)
+        prevBtn.addEventListener('click', () =>
+          showQuestion(Math.max(0, currentIndex - 1))
+        );
+
+        saveBtn.addEventListener('click', () => {
+          const inputs = form.querySelectorAll(`input[name="q${questionsData[currentIndex].id}"]`);
+          const sel = Array.from(inputs).find(i => i.checked);
+          if (!sel) {
+            return alert('Please select an option before saving.');
+          }
+          // record time taken
+          const elapsedSec = Math.round((Date.now() - questionStartTime) / 1000);
+          timeTakenArr[currentIndex] = elapsedSec;
+
+          status[currentIndex] = 'saved';
+          markNav(currentIndex, 'saved');
+          if (currentIndex < questionsData.length - 1) {
+            showQuestion(currentIndex + 1);
+          }
+        });
+
+        skipBtn.addEventListener('click', () => {
+          const inputs = form.querySelectorAll(`input[name="q${questionsData[currentIndex].id}"]`);
+          const sel = Array.from(inputs).find(i => i.checked);
+          if (sel) {
+            return alert('You selected an option. Please Save it or Clear selection before skipping.');
+          }
+          // clear timing
+          timeTakenArr[currentIndex] = null;
+
+          status[currentIndex] = 'skipped';
+          markNav(currentIndex, 'skipped');
+          if (currentIndex < questionsData.length - 1) {
+            showQuestion(currentIndex + 1);
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          const inputs = form.querySelectorAll(`input[name="q${questionsData[currentIndex].id}"]`);
+          const sel = Array.from(inputs).find(i => i.checked);
+          if (sel && status[currentIndex] !== 'saved') {
+            return alert('You selected an option but did not save it. Please Save or Clear before moving on.');
+          }
+          if (!sel && status[currentIndex] !== 'saved') {
+            // auto-skip + clear timing
+            timeTakenArr[currentIndex] = null;
+            status[currentIndex] = 'skipped';
+            markNav(currentIndex, 'skipped');
+          }
+          if (currentIndex < questionsData.length - 1) {
+            showQuestion(currentIndex + 1);
+          }
+        });
+
+        // 5) Timer countdown
+        let timeLeft = 30 * 60;
+        const countdown = setInterval(() => {
+          const m = Math.floor(timeLeft / 60),
+            s = timeLeft % 60;
+          timerDiv.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+          if (timeLeft-- <= 0) {
+            clearInterval(countdown);
+            alert("⏰ Time's up – auto‑submitting.");
+            doSubmit();
+          }
+        }, 1000);
+
+        // 6) Submit with timeTaken payload
+        async function doSubmit() {
+          clearInterval(countdown);
+          submitBtn.disabled = true;
+          const answers = {};
+          questionsData.forEach((q, idx) => {
+            const sel = form.querySelector(`input[name="q${q.id}"]:checked`);
+            answers[q.id] = {
+              answer: sel ? sel.value : null,
+              timeTaken: timeTakenArr[idx]  // seconds or null
+            };
+          });
+          if (!Object.values(answers).some(v => v.answer !== null)) {
+            alert("⚠️ Please select at least one answer.");
+            submitBtn.disabled = false;
+            return;
+          }
+          try {
+            const res = await fetch(`http://localhost:5000/api/mock/submit/${testNumber}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+              },
+              body: JSON.stringify({ answers })
+            });
+            const payload = await res.json();
+            if (!res.ok) throw new Error(payload.error || `HTTP ${res.status}`);
+            alert(payload.message || "✅ Submitted successfully!");
+            window.location.href = 'resultPage.html';
+          } catch (err) {
+            console.error("Submission failed:", err);
+            alert(`⚠️ Submission error: ${err.message}`);
+            if (err.message !== "Test already submitted") {
+              window.location.href = 'mockTests.html';
+            }
+          }
+        }
+        submitBtn.addEventListener('click', e => {
+          e.preventDefault();
+          doSubmit();
+        });
+
+      } catch (err) {
+        console.error("Failed to load questions:", err);
+        alert("⚠️ Could not load questions. Returning to list.");
+        return window.location.href = "mockTests.html";
+      }
+    });
+  </script>
+</body>
+
+</html>

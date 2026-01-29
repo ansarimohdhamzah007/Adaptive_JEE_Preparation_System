@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h2{
+            color: aliceblue;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: #1b1b1b;
+            color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 10px 14px #222;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .contact-form,
+        .contactinfo {
+            padding: 20px;
+            width: 50%;
+        }
+
+        .contact-form {
+            background-color: #1b1b1b;
+            margin-left: 70px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+
+        }
+
+        .contactinfo {
+            background-color: #036;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-form h2,
+        .contactinfo h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #101010;
+            border: 1px solid #5579c6;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        form textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #036;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        form button:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contactinfo {
+            width: 500px;
+            margin-left: 100px;
+        }
+
+        .contactinfo .email {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .contactinfo div {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .contactinfo .email span {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>
+                        <a href="#">EXPLORE</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                            <li><a href="physyll.html">Physics Syllabus</a></li>
+                            <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" id="contact-pagen">CONTACT</a></li>
+                    <li><a href="formulapg.html">FORMULAS</a></li>
+                    <li><a id="authBtn" href="login.html">Login/Register</a></li>
+                    <button id="logoutBtn" style="display: none">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="contact-form">
+            <h2>Send us a message</h2>
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name*</label>
+                        <input type="text" id="name" placeholder="Enter your name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" placeholder="Enter your email" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number*</label>
+                        <input type="tel" id="phone" placeholder="Enter your Phone Number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject*</label>
+                        <input type="text" id="subject" placeholder="Enter your Subject" required />
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Message*</label>
+                    <textarea id="message" placeholder="Enter your message" required></textarea>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="contactinfo">
+            <h2>Contact Information</h2>
+            <div class="email">
+                <span>&#9993;</span>
+                <p>viveksharma08412@gmail.com</p>
+                <span>&#9993;</span>
+                <p>rishavgupta172003@gmail.com</p>
+                <span>&#9993;</span>
+                <p>iamhamzah28@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2 id="Homepagefooter">JEE BUDDY</h2>
+                <p>Master JEE Mains with a Personalised Plan!</p>
+            </div>
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" id="contact-pagef">Contact</a></li>
+                        <li><a href="formulapg.html">Formulas</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>GET IN TOUCH</h3>
+                    <p><a href="#">viveksharma08412@gmail.com</a></p>
+                    <p><a href="#">rishavgupta172003@gmail.com</a></p>
+                    <p><a href="#">iamhamzah28@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

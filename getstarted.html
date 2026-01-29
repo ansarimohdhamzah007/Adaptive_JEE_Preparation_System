@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Started Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        .gtarr {
+            width: 30px;
+            margin-top: 30px;
+        }
+
+        .getheading {
+            color: white;
+            margin-top: 40px;
+            font-size: 1.7rem;
+        }
+
+        .getpara {
+            color: white;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .cnr11 {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .mbox {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 30px;
+            background-color: #5579c6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #fff;
+        }
+
+        .ctbox {
+            text-align: left;
+        }
+
+        .mbox:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .select-bttn {
+            background-color: #02162c5f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .select-bttn:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 20px;
+        }
+
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+
+        .class-bttn {
+            background-color: #05276f;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .class-bttn:hover {
+            background-color: #1156ea;
+        }
+
+        .or-separator {
+            width: 100%;
+            border-top: 1px dotted #222;
+            margin: 10px 0;
+        }
+
+        .arr1 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+
+        .arr1 #back1 {
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+            margin-top: 40px;
+        }
+
+        .headchp1 {
+            color: #fff;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .arr1 img {
+            width: 32px;
+            height: auto;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+
+        .dropdown {
+            display: none;
+        }
+    </style>
+    <script src="auth.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class="bx bx-menu"></i>
+            <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+                    <i class="bx bx-x"></i>
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>
+                        <a href="#">EXPLORE</a>
+                        <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                            <li><a href="physyll.html">Physics Syllabus</a></li>
+                            <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" id="contact-pagen">CONTACT</a></li>
+                    <li><a href="formulapg.html">FORMULAS</a></li>
+                    <li><a id="authBtn" href="login.html">Login/Register</a></li>
+                    <button id="logoutBtn" style="display: none">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="arr1">
+        <span id="back1">
+            <a href="index.html">
+                <img src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="arrow_back" />
+            </a>
+            <h2 class="headchp1">Get Started</h2>
+        </span>
+    </div>
+
+    <div class="cnr11">
+        <h1 class="getheading">Gear Up for a New Journey with JEE Buddy</h1>
+        <p class="getpara">
+            Each day is a new opportunity to learn and grow. Trust in your abilities
+            and stay committed to your goals. With perseverance and hard work, you
+            can conquer any challenge and achieve your dream of excelling in JEE
+            MAINS. Believe in yourself, and success will follow.
+        </p>
+
+        <div class="mbox">
+            <div class="ctbox">
+                <h2>JEE Main Revision Notes</h2>
+                <p>
+                    Access well-organized notes covering every topic in Physics,
+                    Chemistry, and Mathematics to boost your exam preparation.
+                </p>
+
+                <h2>JEE Main Video Lectures</h2>
+                <p>
+                    Watch detailed video lectures from expert teachers on crucial
+                    concepts and problem-solving techniques in all subjects.
+                </p>
+            </div>
+
+            <div class="dropdown-container">
+                <button class="select-bttn" onclick="toggleDropdown()">
+                    Select Class
+                </button>
+                <div id="dropdown" class="dropdown">
+                    <a href="Class11VN.html">
+                        <button type="button" class="class-bttn">Class 11</button>
+                    </a>
+                    <div class="or-separator"></div>
+                    <a href="Class12VN.html">
+                        <button type="button" class="class-bttn">Class 12</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2 id="Homepagefooter">JEE BUDDY</h2>
+                <p>Master JEE Mains with a Personalised Plan!</p>
+            </div>
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" id="contact-pagef">Contact</a></li>
+                        <li><a href="formulapg.html">Formulas</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>GET IN TOUCH</h3>
+                    <p><a href="#">viveksharma08412@gmail.com</a></p>
+                    <p><a href="#">rishavgupta172003@gmail.com</a></p>
+                    <p><a href="#">iamhamzah28@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function toggleDropdown() {
+          const dropdown = document.getElementById("dropdown");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+      </script>
+</body>
+
+</html>

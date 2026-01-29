@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapterwise Tests</title>
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="chaptest.js" defer></script>
+    <script src="script.js"></script>
+    <style>
+         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      .headchp {
+        text-align: center;
+        color: #fff;
+        margin: 30px;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .menu div {
+        margin: 0 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #5579c6;
+      }
+      .menu div.active {
+        background-color: #2980b9;
+        box-shadow: 0 4px 12px rgba(219, 199, 199, 0.2);
+      }
+      table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        color: #fff;
+      }
+      th {
+        border-bottom: 2px solid white;
+      }
+      td {
+        border-bottom: 1px solid white;
+      }
+      tr td:not(:last-child) {
+        border-right: none;
+      }
+      td button {
+        cursor: pointer;
+        padding: 5px 10px;
+        background-color: #3498db;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+      td button:hover {
+        background-color: #2980b9;
+      }
+      .hidden {
+        display: none;
+      }
+
+      .arr1 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 30px;
+        margin-top: 10px;
+      }
+
+      .arr1 #back1 {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+      }
+
+      .headchp1 {
+        color: #fff;
+        margin-left: 10px;
+        margin-top: 30px;
+      }
+
+      .arr1 img {
+        width: 32px;
+        height: auto;
+        cursor: pointer;
+        margin-right: 30px;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <i class="bx bx-menu"></i>
+        <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+        <div class="nav-links">
+          <div class="sidebar-logo">
+            <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+            <i class="bx bx-x"></i>
+          </div>
+          <ul class="links">
+            <li><a href="index.html">HOME</a></li>
+            <li>
+              <a href="#">EXPLORE</a>
+              <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+              <ul class="htmlCss-sub-menu sub-menu">
+                <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                <li><a href="physyll.html">Physics Syllabus</a></li>
+                <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                <li class="more">
+                  <span
+                    ><a href="#">More</a>
+                    <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                  </span>
+                  <ul class="more-sub-menu sub-menu">
+                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="contactpage1.html" id="contact-pagen">CONTACT</a></li>
+            <li><a href="formulapg.html">FORMULAS</a></li>
+            <li><a id="authBtn" href="login.html">Login/Register</a></li>
+            <button id="logoutBtn" style="display: none">Logout</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="arr1">
+      <span id="back1">
+        <a href="index.html">
+          <img
+            src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg"
+            alt="Back"
+          />
+        </a>
+        <h2 class="headchp1">Chapterwise Tests</h2>
+      </span>
+    </div>
+
+    <div class="menu">
+      <div id="physics-btn" class="active" onclick="showTable('physics')">
+        Physics
+      </div>
+      <div id="chemistry-btn" onclick="showTable('chemistry')">Chemistry</div>
+      <div id="maths-btn" onclick="showTable('maths')">Mathematics</div>
+    </div>
+
+    <table id="physics-table">
+      <tr>
+        <th>Serial No.</th>
+        <th>Topic Name</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Electrostatics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Current Electricity</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Electromagnetic Induction</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Alternating Current</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Thermodynamics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Ray Optics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Wave Optics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Rotational Motion</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Mechanical Properties of Fluids</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Mechanical Properties of Solids</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Work, Power and Energy</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Laws of Motion</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Gravitation</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Oscillations</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Motion in one dimension</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Motion in two dimensions</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Thermal Properties of Matter</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Kinetic Theory of Gases</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Center of Mass Momentum and Collision</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Waves and Sound</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>Electromagnetic Waves</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td>Semiconductors</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>Magnetic Effects of Current</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td>Magnetic Properties of Matter</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>Dual Nature of Matter</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td>Atomic Physics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td>Nuclear Physics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td>Experimental Physics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Capacitance</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td>Communication System</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+    </table>
+
+    <table id="chemistry-table" class="hidden">
+      <tr>
+        <th>Serial No.</th>
+        <th>Topic Name</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Aldehydes and Ketones</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Carboxylic Acid Derivatives</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Amines</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>General Organic Chemistry</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Biomolecules</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Polymers</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Hydrocarbons</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Haloalkanes and Haloarenes</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Alcohols, Phenols and Ethers</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Classification of Elements and Periodicity in Properties</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Practical Chemistry</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Hydrogen</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Chemical Bonding and Molecular Structure</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>d- and f- block elements</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Some Basic Concepts of Chemistry</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Structure of Atom</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Thermodynamics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Chemical Equilibrium</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Ionic Equilibrium</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Redox Reactions</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>s- block elements</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td>p- block elements(group 13 & 14)</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>p- block elements(group 15,16,17 & 18)</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td>Coordination Compounds</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>Solutions</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td>Electrochemistry</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td>Chemical Kinetics</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+    </table>
+
+    <table id="maths-table" class="hidden">
+      <tr>
+        <th>Serial No.</th>
+        <th>Topic Name</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Sets, Relations and Functions</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Trigonometric Ratios and Identities</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Trigonometric Equations</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Quadratic Equation</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Sequence and Series</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Binomial Theorem</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Permutation and Combination</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Matrices</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Determinants</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Circle</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Parabola</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Ellipse</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Hyperbola</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Limits</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Continuity and Differentiability</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Application of Derivatives</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Indefinite Integration</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Definite Integration</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Area under curves</td>
+        <td><button type="button" class="test-button">Give Test</button></td>
+      </tr>
+    </table>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2 id="Homepagefooter">JEE BUDDY</h2>
+          <p>Master JEE Mains with a Personalised Plan!</p>
+        </div>
+        <div class="footer-links">
+          <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="contactpage1.html" id="contact-pagef">Contact</a></li>
+              <li><a href="formulapg.html">Formulas</a></li>
+            </ul>
+          </div>
+          <div class="contact-info">
+            <h3>GET IN TOUCH</h3>
+            <p><a href="#">viveksharma08412@gmail.com</a></p>
+            <p><a href="#">rishavgupta172003@gmail.com</a></p>
+            <p><a href="#">iamhamzah28@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function showTable(subject) {
+        document.getElementById("physics-table").classList.add("hidden");
+        document.getElementById("chemistry-table").classList.add("hidden");
+        document.getElementById("maths-table").classList.add("hidden");
+
+        document.getElementById("physics-btn").classList.remove("active");
+        document.getElementById("chemistry-btn").classList.remove("active");
+        document.getElementById("maths-btn").classList.remove("active");
+
+        if (subject === "physics") {
+          document.getElementById("physics-table").classList.remove("hidden");
+          document.getElementById("physics-btn").classList.add("active");
+        } else if (subject === "chemistry") {
+          document.getElementById("chemistry-table").classList.remove("hidden");
+          document.getElementById("chemistry-btn").classList.add("active");
+        } else if (subject === "maths") {
+          document.getElementById("maths-table").classList.remove("hidden");
+          document.getElementById("maths-btn").classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>

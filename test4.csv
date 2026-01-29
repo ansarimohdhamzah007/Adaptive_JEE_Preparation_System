@@ -1,0 +1,16 @@
+id,subject,topic,sub_topic,question,option1,option2,option3,option4,correct_answer,test_number
+1,Physics,Kinematics,Projectile Motion,What is the horizontal velocity of a projectile?,Zero,Equal to the initial velocity,Maximum at the peak,Constant throughout the flight,Constant throughout the flight,4
+2,Physics,Optics,Refraction,In what medium does light travel fastest?,Water,Air,Glass,Diamond,Air,4
+3,Physics,Electricity,Ohm's Law,If resistance is constant then what happens when voltage increases?,Current increases,Current decreases,Current stays the same,Current fluctuates,Current increases,4
+4,Physics,Modern Physics,Quantum Mechanics,What is the photoelectric effect?,The emission of electrons from a metal when exposed to light,The emission of light from a hot object,The diffraction of light,The scattering of light,The emission of electrons from a metal when exposed to light,4
+5,Physics,Thermodynamics,Heat Transfer,What is the primary method of heat transfer in solids?,Conduction,Convection,Radiation,Advection,Conduction,4
+6,Chemistry,Organic Chemistry,Alkanes,What is the general formula for alkanes?,CnH2n+2,CnH2n,CnH2n-2,CnH2n+1,CnH2n+2,4
+7,Chemistry,Inorganic Chemistry,Acids and Bases,What is the pH of pure water at 25°C?,7,0,14,10,7,4
+8,Chemistry,Physical Chemistry,Equilibrium Constant,The equilibrium constant for a reaction is defined as?,The ratio of products to reactants,The ratio of reactants to products,The rate constant of the forward reaction,The sum of products and reactants,The ratio of products to reactants,4
+9,Chemistry,Analytical Chemistry,Chromatography,Which principle does chromatography rely on?,Difference in solubility,Difference in particle size,Difference in polarity,Difference in color,Difference in polarity,4
+10,Chemistry,Environmental Chemistry,Water Pollution,What is the main cause of water pollution?,Industrial waste,Microorganisms,Sunlight,Soil erosion,Industrial waste,4
+11,Mathematics,Algebra,Quadratic Equations,What is the solution for x in the equation x² - 4x + 4 = 0?,x = 2 or x = -2,x = 4,x = 0,x = -4,x = 2,4
+12,Mathematics,Geometry,Trigonometry,What is the value of tan(45°)?,1,0,undefined,∞,1,4
+13,Mathematics,Calculus,Differentiation,What is the derivative of x³?,3x²,3x,2x²,x²,3x²,4
+14,Mathematics,Statistics,Descriptive Statistics,Which measure of central tendency is most affected by outliers?,Mean,Median,Mode,Range,Mean,4
+15,Mathematics,Probability,Conditional Probability,What is conditional probability?,The probability of an event given another event has occurred,The probability of independent events,The probability of mutually exclusive events,The probability of an event with no conditions,The probability of an event given another event has occurred,4

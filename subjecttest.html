@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subjectwise Test</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .headchp1 {
+        text-align: center;
+        color: #fff;
+        margin: 30px;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .menu div {
+        margin: 0 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #5579c6;
+      }
+
+      .menu div.active {
+        background-color: #2980b9;
+        box-shadow: 0 4px 12px rgba(219, 199, 199, 0.2);
+      }
+
+      table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        color: #fff;
+      }
+
+      th {
+        border-bottom: 2px solid white;
+      }
+
+      td {
+        border-bottom: 1px solid white;
+      }
+
+      tr td:not(:last-child) {
+        border-right: none;
+      }
+
+      td button {
+        cursor: pointer;
+        padding: 5px 10px;
+        background-color: #3498db;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+
+      td button:hover {
+        background-color: #2980b9;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .arr1 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 30px;
+        margin-top: 10px;
+      }
+
+      .arr1 #back1 {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+      }
+
+      .headchp1 {
+        color: #fff;
+        margin-left: 10px;
+      }
+
+      .arr1 img {
+        width: 32px;
+        height: auto;
+        cursor: pointer;
+        margin-right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <i class="bx bx-menu"></i>
+        <div class="logo"><a href="index.html">JEE BUDDY</a></div>
+        <div class="nav-links">
+          <div class="sidebar-logo">
+            <span class="logo-name" id="main-pagen2">JEE BUDDY</span>
+            <i class="bx bx-x"></i>
+          </div>
+          <ul class="links">
+            <li><a href="index.html">HOME</a></li>
+            <li>
+              <a href="#">EXPLORE</a>
+              <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+              <ul class="htmlCss-sub-menu sub-menu">
+                <li><a href="mathssyll.html">Maths Syllabus</a></li>
+                <li><a href="physyll.html">Physics Syllabus</a></li>
+                <li><a href="chemsyll.html">Chemistry Syllabus</a></li>
+                <li class="more">
+                  <span
+                    ><a href="#">More</a>
+                    <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                  </span>
+                  <ul class="more-sub-menu sub-menu">
+                    <li><a href="roadmap.html" id="roadmapn">Roadmap</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="contactpage1.html" id="contact-pagen">CONTACT</a></li>
+            <li><a href="formulapg.html">FORMULAS</a></li>
+            <li><a id="authBtn" href="login.html">Login/Register</a></li>
+            <button id="logoutBtn" style="display: none">Logout</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="arr1">
+      <span id="back1">
+        <a href="index.html">
+          <img
+            src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg"
+            alt="Back"
+          />
+        </a>
+        <h2 class="headchp1">Subjectwise Tests</h2>
+      </span>
+    </div>
+
+    <div class="menu">
+      <div id="physics-btn" class="active" onclick="showTable('physics')">
+        Physics
+      </div>
+      <div id="chemistry-btn" onclick="showTable('chemistry')">Chemistry</div>
+      <div id="maths-btn" onclick="showTable('maths')">Mathematics</div>
+    </div>
+
+    <table id="physics-table">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Subject</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Physics Mock I</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Physics Mock II</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Physics Mock III</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Physics Mock IV</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Physics Mock V</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="chemistry-table" class="hidden">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Subject</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Chemistry Mock I</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Chemistry Mock II</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Chemistry Mock III</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Chemistry Mock IV</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Chemistry Mock V</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="maths-table" class="hidden">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Subject</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mathematics Mock I</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Mathematics Mock II</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Mathematics Mock III</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Mathematics Mock IV</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Mathematics Mock V</td>
+          <td><button type="button" class="test-button">Give Test</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2 id="Homepagefooter">JEE BUDDY</h2>
+          <p>Master JEE Mains with a Personalised Plan!</p>
+        </div>
+        <div class="footer-links">
+          <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#" id="contact-pagef">Contact</a></li>
+              <li><a href="formulapg.html">Formulas</a></li>
+            </ul>
+          </div>
+          <div class="contact-info">
+            <h3>GET IN TOUCH</h3>
+            <p><a href="#">viveksharma08412@gmail.com</a></p>
+            <p><a href="#">rishavgupta172003@gmail.com</a></p>
+            <p><a href="#">iamhamzah28@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © 2024 JEE BUDDY Pvt Ltd. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="script.js" defer></script>
+    <script>
+        function showTable(subject) {
+          const tables = ["physics", "chemistry", "maths"];
+          tables.forEach((table) => {
+            document.getElementById(`${table}-table`).classList.add("hidden");
+            document.getElementById(`${table}-btn`).classList.remove("active");
+          });
+  
+          document.getElementById(`${subject}-table`).classList.remove("hidden");
+          document.getElementById(`${subject}-btn`).classList.add("active");
+        }
+      </script>
+  </body>
+</html>

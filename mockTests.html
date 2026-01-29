@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Tests</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #141b29;
+      }
+      h1 {
+        text-align: center;
+        color: #fff;
+      }
+      #tests-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .test-card {
+        background-color: #b2bef7;
+        border: 1px solid #ddd;
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .test-card h3 {
+        margin-bottom: 15px;
+        color: #141b29;
+      }
+      .test-card button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        background-color: #041d37;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .test-card button:disabled {
+        background-color: #cccccc;
+        color: #041d37;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="arr1">
+      <span id="back1">
+          <a href="index.html">
+              <img src="arrow_back_34dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="arrow_back" />
+          </a>
+      
+      </span>
+  </div>
+    <h1>🧠 Mock Test Series</h1>
+    <div id="tests-container">
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const token = localStorage.getItem("token");
+
+        // Check if token exists
+        if (!token) {
+          alert("Please log in first!");
+          window.location.href = "login.html"; // Redirect to login page
+          return;
+        }
+
+        // Fetch test status (attempted / not)
+        fetch("http://localhost:5000/api/mock/mock-tests/tests/status", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const container = document.getElementById("tests-container");
+
+            if (!data.attemptedTests) {
+              throw new Error("Failed to fetch test status");
+            }
+
+            // Create test cards dynamically
+            for (let i = 1; i <= 5; i++) {
+              const attempted = data.attemptedTests.includes(i);
+              const testDiv = document.createElement("div");
+              testDiv.className = "test-card";
+
+              testDiv.innerHTML = `
+                <h3>Mock Test ${i}</h3>
+                <button onclick="startTest(${i})" ${attempted ? "disabled" : ""}>
+                  Give Test
+                </button>
+                <button onclick="viewResult(${i})" ${attempted ? "" : "disabled"}>
+                  Show Result
+                </button>
+              `;
+
+              container.appendChild(testDiv);
+            }
+          })
+          .catch((err) => {
+            console.error("Error fetching test status:", err);
+            alert("There was an error fetching your test status. Please try again.");
+          });
+      });
+
+      function startTest(testNumber) {
+        localStorage.setItem("currentTest", testNumber);
+        window.location.href = "testPage.html"; // Redirect to test page
+      }
+
+      function viewResult(testNumber) {
+        localStorage.setItem("currentTest", testNumber);
+        window.location.href = "resultPage.html"; // Redirect to result page
+      }
+    </script>
+  </body>
+</html>
